@@ -1,0 +1,9 @@
+" Duane Edmonds
+" October 22, 2007
+
+"set window size
+"winsize 130 60
+
+"-- Precise Automation Guidance Programming Language (GPL) ---------------------
+"highlight current line
+"autocmd BufNewFile,BufRead *.gpl set cursorline

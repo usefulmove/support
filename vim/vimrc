@@ -1,0 +1,135 @@
+" dedmonds
+" apr 2020
+
+set nocompatible        "set mode to 'not vi compatible'
+set wrap                "wrap long lines
+set showcmd             "show (partial) command in status line
+set ignorecase          "do case insensitive matching
+set noincsearch         "incremental search
+set hlsearch            "enable search highlighting
+set ffs=unix,dos,mac    "support all three text file formats (EOL convention)
+syntax enable           "enable syntax highlighting
+
+"indentation
+set autoindent
+set smartindent
+
+"configure tabs (4 spaces)
+set et
+set sw=4
+set tabstop=4
+set smarttab
+
+"don't insert two spaces after sentences on join
+set nojoinspaces
+
+"color scheme
+colorscheme koehler
+
+"abbreviations
+iabbr bm BOOKMARK
+iabbr fixme FIXME
+iabbr todo TODO
+iabbr removeme REMOVEME
+
+"-- meeting notes template -----------------------------------------------------
+iabbr _meetingnotes meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
+iabbr _mtg meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
+
+"display font
+"set guifont=Lucida_Console:h10:cANSI
+"set guifont=Droid\ Sans\ Mono:h13
+set guifont=Source\ Code\ Pro:h13
+
+"add function to clean files
+function Cleaner()
+    set ff=unix "set file format
+    %s/\s\+$//g "remove trailing spaces
+endfunction
+
+"subversion (svn) conflict marker search abbreviation
+cabbr _conflict ^\(<\\|=\\|>\)\{4,\}
+
+"-- dictionary additions -------------------------------------------------------
+:set spellfile=~/.vim/dict.add
+
+"-- C/C++ ----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.c set number
+autocmd BufNewFile,BufRead *.h set number
+autocmd BufNewFile,BufRead *.cpp set number
+
+"-- Java -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.java set number
+
+"-- Matlab/Octave --------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.m set number
+
+"-- Python ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.py set number
+autocmd BufNewFile,BufRead *.pyw set number
+"configure tabs
+set sw=4
+set tabstop=4
+"set definition search command mode abbreviation
+autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
+autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
+
+"-- LaTeX/TeX ------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.tex set number
+"configure tabs
+set sw=4
+set tabstop=4
+
+"-- XML ------------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.xml set number
+
+"-- Precise Automation Guidance Programming Language (GPL) ---------------------
+"set VB.NET file type for .gpl files
+autocmd BufNewFile,BufRead *.gpl set ft=vbnet
+"display line numbers
+autocmd BufNewFile,BufRead *.gpl set number
+"set abbreviation for block line for .gpl files
+autocmd BufNewFile,BufRead *.gpl iabbr #b '-------------------------------------------------------------------------------
+"set function template abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _newfn '-------------------------------------------------------------------------------<CR>' Function:<CR>' Description:<CR>' Usage:<CR>' Arguments:<CR>' Return:<CR>'-------------------------------------------------------------------------------<CR>Private Function cursor_here() As CHANGE_THIS<CR><TAB><CR><BS>End Function<CR><ESC>?\<CHANGE_THIS\><CR>:call search('cursor_here','b')<CR>cw<BS>
+"set subroutine template abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _newsub '-------------------------------------------------------------------------------<CR>' Subroutine:<CR>' Description:<CR>' Usage:<CR>' Arguments:<CR>'-------------------------------------------------------------------------------<CR>Private Sub cursor_here()<CR><TAB><CR><BS>End Sub<CR><ESC>:call search('cursor_here','b')<CR>cw<BS>
+"set if statement abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _if If cursor_here Then<CR>End If<ESC>:call search('cursor_here','b')<CR>cw<BS>
+"set definition search command mode abbreviation
+autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|Static\\|Public\\|Private\\|Protected\\|Class\)\>\s*
+
+"-- MediaWiki and Wikipedia markup ---------------------------------------------
+"set Wikipedia file type for .wiki files and Wikipedia online edits
+autocmd BufNewFile,BufRead *.wiki set ft=wikipedia
+autocmd BufRead,BufNewFile *.wikipedia.org.* set ft=wikipedia
+
+"-- Portable Game Notation (PGN) markup ----------------------------------------
+"set PGN file type for .pgn files
+autocmd BufNewFile,BufRead *.pgn set ft=pgn
+
+"-- Gmail mail mode ------------------------------------------------------------
+"set mail file type for Gmail addresses
+autocmd BufRead,BufNewFile mail.google.com.* set ft=mail
+autocmd BufRead,BufNewFile mail.google.com.* set textwidth=0
+autocmd BufRead,BufNewFile mail.google.com.* set spell
+
+"-- Ekso Bionics Web Asscess (Exchange) mail mode -------------------------------------------------------------
+"set mail file type for Ekso Bionics web mail addresses
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set ft=mail
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set textwidth=0
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set spell
+
+"-- Livemocha Spanish editor mode ----------------------------------------------
+autocmd BufRead,BufNewFile *livemocha.com.* set spelllang=es
+autocmd BufRead,BufNewFile *livemocha.com.* set spell
+
+"-- R --------------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.R set number
