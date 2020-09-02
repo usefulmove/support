@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+# duane edmonds
+# april 8, 2008
+#
+# sed script execution routine
+#
+# description: this shell script is used to execute a specified sed script,
+# contained within a text file, on files specified by the user. the routine
+# requires that sed be installed prior to calling the shell script. 
+#
+# usage: $ exsed script.sed input_file1 [input_file2 ...]
+#
+# arguments:
+#   script.sed -- sed script text file
+#   input_file -- name of input (source) file
+#
+# note: a backup file (original_filename.backup) is created for each input file.
+
+EXSEDVERSION="0.0.3" # version
+
+SCRPTNAME="exsed"
+
+BADARGS=65 # bad arguments exit return code
+#(TODO: requires follow up to ensure the return code is correct)
+USAGESTR="usage: $SCRPTNAME script.sed input_file(s)"
+
+# check for script and input file arguments
+if [ -z $1 ]
+then
+    echo "$SCRPTNAME: missing arguments"
+    echo $USAGESTR
+    exit $BADARGS
+elif [ $1 = "-v" ]
+then
+    echo "$SCRPTNAME: version $EXSEDVERSION"
+    exit 0
+elif [ -z $2 ]
+then
+    echo "$SCRPTNAME: missing second argument"
+    echo $USAGESTR
+    exit $BADARGS
+fi
+
+# check that the sed script file is a valid text file (TODO)
+
+# execute sed script
+for arg in $*
+    do
+        if [ $arg != $1 ]
+        then
+            echo "running $SEDFILE sed script on $arg..."
+
+            # create backup file
+            BACKUPFILE=$arg.backup
+            cp "$arg" $BACKUPFILE
+
+            # execute script
+            TEMPFILE=./$arg.exsed.temp
+            sed -f $SEDFILE "$arg" > $TEMPFILE
+            mv $TEMPFILE "$arg"
+        else
+            SEDFILE=$arg
+        fi
+    done
+
+exit 0
