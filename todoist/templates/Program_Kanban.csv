@@ -1,0 +1,8 @@
+﻿TYPE,CONTENT,DESCRIPTION,PRIORITY,INDENT,AUTHOR,RESPONSIBLE,DATE,DATE_LANG,TIMEZONE
+meta,view_style=board,,,,,,,,
+section,parked,,,,,,,,
+section,blocked,,,,,,,,
+section,backlog,,,,,,,,
+section,staged,,,,,,,,
+section,in progress,,,,,,,,
+section,done,,,,,,,,
