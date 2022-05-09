@@ -105,6 +105,12 @@ autocmd BufNewFile,BufRead *.gpl iabbr _if If cursor_here Then<CR>End If<ESC>:ca
 "set definition search command mode abbreviation
 autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|Static\\|Public\\|Private\\|Protected\\|Class\)\>\s*
 
+"-- SQL ------------------------------------------------------------------------
+"set file type for .SQL files
+autocmd BufNewFile,BufRead *.SQL set ft=sql
+"display line numbers
+autocmd BufNewFile,BufRead *.SQL set number
+
 "-- MediaWiki and Wikipedia markup ---------------------------------------------
 "set Wikipedia file type for .wiki files and Wikipedia online edits
 autocmd BufNewFile,BufRead *.wiki set ft=wikipedia
