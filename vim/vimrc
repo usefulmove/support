@@ -14,10 +14,10 @@ syntax enable           "enable syntax highlighting
 set autoindent
 set smartindent
 
-"configure tabs (2 spaces)
+"configure tabs (4 spaces)
 set et
-set sw=2
-set tabstop=2
+set sw=4
+set tabstop=4
 set smarttab
 
 "don't insert two spaces after sentences on join
@@ -72,8 +72,10 @@ autocmd BufNewFile,BufRead *.m set number
 autocmd BufNewFile,BufRead *.py set number
 autocmd BufNewFile,BufRead *.pyw set number
 "configure tabs
-set sw=4
-set tabstop=4
+autocmd BufNewFile,BufRead *.py set sw=4
+autocmd BufNewFile,BufRead *.pyw set sw=4
+autocmd BufNewFile,BufRead *.py set tabstop=4
+autocmd BufNewFile,BufRead *.pyw set tabstop=4
 "set definition search command mode abbreviation
 autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
 autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
@@ -82,8 +84,8 @@ autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
 "display line numbers
 autocmd BufNewFile,BufRead *.tex set number
 "configure tabs
-set sw=4
-set tabstop=4
+autocmd BufNewFile,BufRead *.tex set sw=4
+autocmd BufNewFile,BufRead *.tex set tabstop=4
 
 "-- XML ------------------------------------------------------------------------
 "display line numbers
@@ -108,8 +110,9 @@ autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|S
 "-- SQL ------------------------------------------------------------------------
 "set file type for .SQL files
 autocmd BufNewFile,BufRead *.SQL set ft=sql
-"display line numbers
-autocmd BufNewFile,BufRead *.SQL set number
+autocmd BufNewFile,BufRead *.SQL set number "display line numbers
+autocmd BufNewFile,BufRead *.SQL set sw=2
+autocmd BufNewFile,BufRead *.SQL set tabstop=2
 
 "-- MediaWiki and Wikipedia markup ---------------------------------------------
 "set Wikipedia file type for .wiki files and Wikipedia online edits
