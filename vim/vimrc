@@ -25,7 +25,8 @@ set nojoinspaces
 
 "color scheme
 "colorscheme koehler
-colorscheme cobalt
+"colorscheme cobalt
+colorscheme nord
 
 "abbreviations
 iabbr bm BOOKMARK
