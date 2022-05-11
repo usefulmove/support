@@ -1,5 +1,5 @@
 " dedmonds
-" may 2022
+" 220510
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -24,7 +24,8 @@ set smarttab
 set nojoinspaces
 
 "color scheme
-colorscheme koehler
+"colorscheme koehler
+colorscheme cobalt
 
 "abbreviations
 iabbr bm BOOKMARK
