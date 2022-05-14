@@ -1,2 +1,8 @@
 set -o vi
 alias grep="grep --color"
+alias lah="ls -lah"
+alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
+export EDITOR=vi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"
