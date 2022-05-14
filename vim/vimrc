@@ -1,110 +1,144 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+" dedmonds
+" 220511_0956
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+set nocompatible        "set mode to 'not vi compatible'
+set wrap                "wrap long lines
+set showcmd             "show (partial) command in status line
+set ignorecase          "do case insensitive matching
+set noincsearch         "incremental search
+set hlsearch            "enable search highlighting
+set ffs=unix,dos,mac    "support all three text file formats (EOL convention)
+syntax enable           "enable syntax highlighting
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+"indentation
+set autoindent
+set smartindent
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+"configure tabs (4 spaces)
+set et
+set sw=4
+set tabstop=4
+set smarttab
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+"don't insert two spaces after sentences on join
+set nojoinspaces
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+"color scheme
+"colorscheme koehler
+"colorscheme nord
+colorscheme cobalt
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+"abbreviations
+iabbr bm BOOKMARK
+iabbr fixme FIXME
+iabbr todo TODO
+iabbr removeme REMOVEME
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+"-- meeting notes template -----------------------------------------------------
+iabbr _meetingnotes meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
+iabbr _mtg meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+"display font
+set guifont=Source\ Code\ Pro:h16
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+"add function to clean files
+function Cleaner()
+    set ff=unix "set file format
+    %s/\s\+$//g "remove trailing spaces
+endfunction
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+"subversion (svn) conflict marker search abbreviation
+cabbr _conflict ^\(<\\|=\\|>\)\{4,\}
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+"-- dictionary additions -------------------------------------------------------
+:set spellfile=~/.vim/dict.add
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+"-- C/C++ ----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.c set number
+autocmd BufNewFile,BufRead *.h set number
+autocmd BufNewFile,BufRead *.cpp set number
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+"-- Java -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.java set number
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+"-- Matlab/Octave --------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.m set number
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+"-- Python ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.py set number
+autocmd BufNewFile,BufRead *.pyw set number
+"configure tabs
+autocmd BufNewFile,BufRead *.py set sw=4
+autocmd BufNewFile,BufRead *.pyw set sw=4
+autocmd BufNewFile,BufRead *.py set tabstop=4
+autocmd BufNewFile,BufRead *.pyw set tabstop=4
+"set definition search command mode abbreviation
+autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
+autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+"-- LaTeX/TeX ------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.tex set number
+"configure tabs
+autocmd BufNewFile,BufRead *.tex set sw=4
+autocmd BufNewFile,BufRead *.tex set tabstop=4
 
-source $ZSH/oh-my-zsh.sh
+"-- XML ------------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.xml set number
 
-# User configuration
+"-- Precise Automation Guidance Programming Language (GPL) ---------------------
+"set VB.NET file type for .gpl files
+autocmd BufNewFile,BufRead *.gpl set ft=vbnet
+"display line numbers
+autocmd BufNewFile,BufRead *.gpl set number
+"set abbreviation for block line for .gpl files
+autocmd BufNewFile,BufRead *.gpl iabbr #b '-------------------------------------------------------------------------------
+"set function template abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _newfn '-------------------------------------------------------------------------------<CR>' Function:<CR>' Description:<CR>' Usage:<CR>' Arguments:<CR>' Return:<CR>'-------------------------------------------------------------------------------<CR>Private Function cursor_here() As CHANGE_THIS<CR><TAB><CR><BS>End Function<CR><ESC>?\<CHANGE_THIS\><CR>:call search('cursor_here','b')<CR>cw<BS>
+"set subroutine template abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _newsub '-------------------------------------------------------------------------------<CR>' Subroutine:<CR>' Description:<CR>' Usage:<CR>' Arguments:<CR>'-------------------------------------------------------------------------------<CR>Private Sub cursor_here()<CR><TAB><CR><BS>End Sub<CR><ESC>:call search('cursor_here','b')<CR>cw<BS>
+"set if statement abbreviation
+autocmd BufNewFile,BufRead *.gpl iabbr _if If cursor_here Then<CR>End If<ESC>:call search('cursor_here','b')<CR>cw<BS>
+"set definition search command mode abbreviation
+autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|Static\\|Public\\|Private\\|Protected\\|Class\)\>\s*
 
-# export MANPATH="/usr/local/man:$MANPATH"
+"-- SQL ------------------------------------------------------------------------
+"set file type for .SQL files
+autocmd BufNewFile,BufRead *.SQL set ft=sql
+autocmd BufNewFile,BufRead *.SQL set number "display line numbers
+autocmd BufNewFile,BufRead *.SQL set sw=2
+autocmd BufNewFile,BufRead *.SQL set tabstop=2
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+"-- MediaWiki and Wikipedia markup ---------------------------------------------
+"set Wikipedia file type for .wiki files and Wikipedia online edits
+autocmd BufNewFile,BufRead *.wiki set ft=wikipedia
+autocmd BufRead,BufNewFile *.wikipedia.org.* set ft=wikipedia
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+"-- Portable Game Notation (PGN) markup ----------------------------------------
+"set PGN file type for .pgn files
+autocmd BufNewFile,BufRead *.pgn set ft=pgn
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+"-- Gmail mail mode ------------------------------------------------------------
+"set mail file type for Gmail addresses
+autocmd BufRead,BufNewFile mail.google.com.* set ft=mail
+autocmd BufRead,BufNewFile mail.google.com.* set textwidth=0
+autocmd BufRead,BufNewFile mail.google.com.* set spell
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+"-- Ekso Bionics Web Asscess (Exchange) mail mode -------------------------------------------------------------
+"set mail file type for Ekso Bionics web mail addresses
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set ft=mail
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set textwidth=0
+autocmd BufRead,BufNewFile mail.eksobionics.com.* set spell
 
-set -o vi
-alias grep="grep --color"
-alias lah="ls -lah"
-alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
-export EDITOR=vi
+"-- Livemocha Spanish editor mode ----------------------------------------------
+autocmd BufRead,BufNewFile *livemocha.com.* set spelllang=es
+autocmd BufRead,BufNewFile *livemocha.com.* set spell
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$HOME/.cargo/env"
+"-- R --------------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.R set number
