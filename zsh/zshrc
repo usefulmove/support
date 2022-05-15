@@ -114,7 +114,7 @@ alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 # git interface (go)
 alias go="git remote show origin"
 alias gs="git status"
-alias ga="git add && git status"
+alias ga="git add"
 alias gcp="git commit -m '(automated gcp push)' && git push && git status"
 alias gp="git push && git status"
 alias gd="git diff"
