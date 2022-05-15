@@ -107,11 +107,14 @@ alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
 export EDITOR=vi
 
 # git interface (go)
+alias "go"="git remote show origin"
 alias "gs"="git status"
 alias "ga"="git add"
 alias "gcp"="git commit -m '(automated gcp push)' && git push && git status"
 alias "gd"="git diff"
 alias "gds"="git diff --staged"
+
+alias "o"="cd ~/repos/"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
