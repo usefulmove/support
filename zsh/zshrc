@@ -106,9 +106,10 @@ set -o vi
 alias grep="grep --color"
 alias lah="ls -lah"
 alias e="exit"
+alias tm="tmux"
 alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
-alias tm="tmux"
+alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 
 # git interface (go)
 alias go="git remote show origin"
