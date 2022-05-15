@@ -104,8 +104,14 @@ set -o vi
 alias grep="grep --color"
 alias lah="ls -lah"
 alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
-alias "gcp"="git commit -m '(automated gcp push)' && git push && git status"
 export EDITOR=vi
+
+# git interface (go)
+alias "gs"="git status"
+alias "ga"="git add"
+alias "gcp"="git commit -m '(automated gcp push)' && git push && git status"
+alias "gd"="git diff"
+alias "gds"="git diff --staged"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
