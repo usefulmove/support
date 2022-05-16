@@ -104,6 +104,7 @@ bindkey '^R' history-incremental-search-backward
 set -o vi
 alias grep="grep --color"
 alias lah="ls -lah"
+alias c="cd"
 alias e="exit"
 alias tm="tmux"
 alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
