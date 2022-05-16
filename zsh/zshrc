@@ -121,6 +121,7 @@ alias gd="git diff"
 alias gds="git diff --staged"
 
 alias repo="cd ~/repos/"
+#alias repo="cd ~/sb/repos/"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
