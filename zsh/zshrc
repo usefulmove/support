@@ -120,8 +120,8 @@ alias gp="git push && git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 
-alias repo="cd ~/repos/"
-#alias repo="cd ~/sb/repos/"
+alias repo="cd ~/repos/ && ls"
+#alias repo="cd ~/sb/repos/ && ls"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
