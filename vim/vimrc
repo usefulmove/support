@@ -39,7 +39,7 @@ iabbr _meetingnotes meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<
 iabbr _mtg meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
 
 "display font
-set guifont=Source\ Code\ Pro:h16
+set guifont=Source\ Code\ Pro:h20
 
 "add function to clean files
 function Cleaner()
