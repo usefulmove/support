@@ -112,6 +112,7 @@ alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 
 # git interface (go)
+alias g="git"
 alias go="git remote show origin"
 alias gs="git status"
 alias ga="git add"
