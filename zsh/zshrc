@@ -117,12 +117,20 @@ alias go="git remote show origin"
 alias gs="git status"
 alias ga="git add"
 alias gcp="git commit -m '(automated gcp push)' && git push && git status"
-alias gp="git push && git status"
+alias gpull="git pull && git status"
+alias gpush="git push && git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 
-alias repo="cd ~/repos/ && ls"
-#alias repo="cd ~/sb/repos/ && ls"
+# repository base
+#REPO="$HOME/repos"
+REPO="$HOME/sb/repos"
+alias repo="cd $REPO && ls"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# snowflake db
+alias snowflake="Rscript $REPO/code/snowflake/snowflake.R"
+
+eval "$($(brew --prefix)/bin/brew shellenv)"
 . "$HOME/.cargo/env"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
