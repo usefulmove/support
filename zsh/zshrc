@@ -107,11 +107,12 @@ alias lah="ls -lah"
 alias c="cd"
 alias e="exit"
 alias tm="tmux"
+alias v="neovide"
 alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 
-# git interface (gcp)
+# git interface (go)
 alias g="git"
 alias go="git remote show origin"
 alias gs="git status"
