@@ -129,8 +129,9 @@ REPO="$HOME/repos"
 #REPO="$HOME/sb/repos"
 alias repo="cd $REPO && ls"
 
-# snowflake db
-alias snowflake="Rscript $REPO/code/snowflake/snowflake.R"
+# snowflake db command line interface
+alias snow="Rscript $REPO/code/snowflake/snowflake.R"
+alias snowSQL="Rscript $REPO/code/snowflake/snowSQL.R"
 
 # dictionary lookup
 alias define="$REPO/code/dict/dict.sh"
