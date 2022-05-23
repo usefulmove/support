@@ -80,6 +80,10 @@ autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
 autocmd BufNewFile,BufRead *.R set number
 autocmd BufNewFile,BufRead *.Rmd set number
 
+"-- Julia ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.jl set number
+
 "-- LaTeX/TeX ------------------------------------------------------------------
 "display line numbers
 autocmd BufNewFile,BufRead *.tex set number
