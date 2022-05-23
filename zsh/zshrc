@@ -107,8 +107,7 @@ alias lah="ls -lah"
 alias c="cd"
 alias e="exit"
 alias tm="tmux"
-alias v="neovide"
-alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
+#alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 
@@ -133,10 +132,13 @@ alias repo="cd $REPO && ls"
 alias snow="Rscript $REPO/code/snowflake/snowflake.R"
 alias snowSQL="Rscript $REPO/code/snowflake/snowSQL.R"
 
+# command line calculator
+alias rpn="$REPO/code/rpn/rpn.jl"
+
 # dictionary lookup
 alias define="$REPO/code/dict/dict.sh"
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
-. "$HOME/.cargo/env"
+#eval "$($(brew --prefix)/bin/brew shellenv)"
+#. "$HOME/.cargo/env"
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
