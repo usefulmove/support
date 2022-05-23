@@ -1,5 +1,5 @@
 " dedmonds
-" 220511_0956
+" 220522_1658
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -14,10 +14,10 @@ syntax enable           "enable syntax highlighting
 set autoindent
 set smartindent
 
-"configure tabs (4 spaces)
+"configure tabs (2 spaces)
 set et
-set sw=4
-set tabstop=4
+set sw=2
+set tabstop=2
 set smarttab
 
 "don't insert two spaces after sentences on join
@@ -71,14 +71,14 @@ autocmd BufNewFile,BufRead *.m set number
 "display line numbers
 autocmd BufNewFile,BufRead *.py set number
 autocmd BufNewFile,BufRead *.pyw set number
-"configure tabs
-autocmd BufNewFile,BufRead *.py set sw=4
-autocmd BufNewFile,BufRead *.pyw set sw=4
-autocmd BufNewFile,BufRead *.py set tabstop=4
-autocmd BufNewFile,BufRead *.pyw set tabstop=4
 "set definition search command mode abbreviation
 autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
 autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
+
+"-- R ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.R set number
+autocmd BufNewFile,BufRead *.Rmd set number
 
 "-- LaTeX/TeX ------------------------------------------------------------------
 "display line numbers
@@ -111,8 +111,6 @@ autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|S
 "set file type for .SQL files
 autocmd BufNewFile,BufRead *.SQL set ft=sql
 autocmd BufNewFile,BufRead *.SQL set number "display line numbers
-autocmd BufNewFile,BufRead *.SQL set sw=2
-autocmd BufNewFile,BufRead *.SQL set tabstop=2
 
 "-- MediaWiki and Wikipedia markup ---------------------------------------------
 "set Wikipedia file type for .wiki files and Wikipedia online edits
@@ -128,17 +126,3 @@ autocmd BufNewFile,BufRead *.pgn set ft=pgn
 autocmd BufRead,BufNewFile mail.google.com.* set ft=mail
 autocmd BufRead,BufNewFile mail.google.com.* set textwidth=0
 autocmd BufRead,BufNewFile mail.google.com.* set spell
-
-"-- Ekso Bionics Web Asscess (Exchange) mail mode -------------------------------------------------------------
-"set mail file type for Ekso Bionics web mail addresses
-autocmd BufRead,BufNewFile mail.eksobionics.com.* set ft=mail
-autocmd BufRead,BufNewFile mail.eksobionics.com.* set textwidth=0
-autocmd BufRead,BufNewFile mail.eksobionics.com.* set spell
-
-"-- Livemocha Spanish editor mode ----------------------------------------------
-autocmd BufRead,BufNewFile *livemocha.com.* set spelllang=es
-autocmd BufRead,BufNewFile *livemocha.com.* set spell
-
-"-- R --------------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.R set number
