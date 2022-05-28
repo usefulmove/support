@@ -125,7 +125,6 @@ alias gds="git diff --staged"
 
 # repository base
 REPO="$HOME/repos"
-#REPO="$HOME/sb/repos"
 alias repo="cd $REPO && ls"
 
 # snowflake db command line interface
@@ -137,6 +136,12 @@ alias comp="$REPO/code/rpn/rpn.jl"
 
 # dictionary lookup
 alias define="$REPO/code/dict/dict.sh"
+
+# todoist rest api
+alias todo="$REPO/code/todoist/todo.sh"
+
+# git credential manager
+GCM_CREDENTIAL_STORE=cache
 
 #eval "$($(brew --prefix)/bin/brew shellenv)"
 #. "$HOME/.cargo/env"
