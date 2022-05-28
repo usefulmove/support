@@ -132,7 +132,7 @@ alias snow="Rscript $REPO/code/snowflake/snowflake.R"
 alias snowSQL="Rscript $REPO/code/snowflake/snowSQL.R"
 
 # command line calculator
-alias comp="$REPO/code/rpn/rpn.jl"
+alias comp="$REPO/code/comp/comp.jl"
 
 # dictionary lookup
 alias define="$REPO/code/dict/dict.sh"
