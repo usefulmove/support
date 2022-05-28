@@ -142,7 +142,3 @@ alias todo="$REPO/code/todoist/todo.sh"
 
 #eval "$($(brew --prefix)/bin/brew shellenv)"
 #. "$HOME/.cargo/env"
-
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach -t default || tmux new -s default
-fi
