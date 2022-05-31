@@ -142,5 +142,5 @@ alias define="$REPO/code/dict/dict.sh"
 # todoist rest api
 alias todo="$REPO/code/todoist/todo.sh"
 
-#eval "$($(brew --prefix)/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 #. "$HOME/.cargo/env"
