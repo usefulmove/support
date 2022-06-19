@@ -1,5 +1,5 @@
 " dedmonds
-" 220522_1658
+" 220618_2301
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -62,6 +62,10 @@ autocmd BufNewFile,BufRead *.cpp set number
 "-- Java -----------------------------------------------------------------------
 "display line numbers
 autocmd BufNewFile,BufRead *.java set number
+
+"-- JavaScript -----------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.js set number
 
 "-- Matlab/Octave --------------------------------------------------------------
 "display line numbers
