@@ -1,5 +1,5 @@
 " dedmonds
-" 220618_2301
+" 220620_1512
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -84,9 +84,13 @@ autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
 autocmd BufNewFile,BufRead *.R set number
 autocmd BufNewFile,BufRead *.Rmd set number
 
-"-- Julia ---------------------------------------------------------------------
+"-- Julia ----------------------------------------------------------------------
 "display line numbers
 autocmd BufNewFile,BufRead *.jl set number
+
+"-- Rust -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.rs set number
 
 "-- LaTeX/TeX ------------------------------------------------------------------
 "display line numbers
