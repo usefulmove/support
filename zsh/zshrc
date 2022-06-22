@@ -143,4 +143,4 @@ alias define="$REPO/code/dict/dict.sh"
 alias todo="$REPO/code/todoist/todo.sh"
 
 eval "$($(brew --prefix)/bin/brew shellenv)"
-#. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
