@@ -1,5 +1,5 @@
 " dedmonds
-" 220704_2100
+" 220709_1259
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -26,7 +26,7 @@ set nojoinspaces
 "color scheme
 "colorscheme koehler
 "colorscheme nord
-colorscheme cobalt
+"colorscheme cobalt
 
 "abbreviations
 iabbr bm BOOKMARK
