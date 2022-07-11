@@ -1,5 +1,5 @@
 " dedmonds
-" 220710_2151
+" 220711_0025
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -14,10 +14,10 @@ syntax enable           "enable syntax highlighting
 set autoindent
 set smartindent
 
-"configure tabs (2 spaces)
+"configure tabs (4 spaces)
 set et
-set sw=2
-set tabstop=2
+set sw=4
+set tabstop=4
 set smarttab
 
 "don't insert two spaces after sentences on join
