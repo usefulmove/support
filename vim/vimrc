@@ -1,5 +1,5 @@
 " dedmonds
-" 220709_1259
+" 220710_2151
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -127,6 +127,8 @@ autocmd BufNewFile,BufRead *.SQL set number "display line numbers
 "-- comp interpreter -----------------------------------------------------------
 autocmd BufNewFile,BufRead *.cm set ft=comp
 autocmd BufNewFile,BufRead *.cm set number "display line numbers
+autocmd BufNewFile,BufRead *.cmp set ft=comp
+autocmd BufNewFile,BufRead *.cmp set number "display line numbers
 
 "-- MediaWiki and Wikipedia markup ---------------------------------------------
 "set Wikipedia file type for .wiki files and Wikipedia online edits
