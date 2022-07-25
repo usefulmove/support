@@ -1,5 +1,5 @@
 " dedmonds
-" 220724_2103
+" 220725_1316
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -131,6 +131,11 @@ autocmd BufNewFile,BufRead *.cmp set number "display line numbers
 "set Wikipedia file type for .wiki files and Wikipedia online edits
 autocmd BufNewFile,BufRead *.wiki set ft=wikipedia
 autocmd BufRead,BufNewFile *.wikipedia.org.* set ft=wikipedia
+
+"-- Markdown -------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.md set ft=markdown
+autocmd BufNewFile,BufRead *.md set sw=2
+autocmd BufNewFile,BufRead *.md set tabstop=2
 
 "-- Portable Game Notation (PGN) markup ----------------------------------------
 "set PGN file type for .pgn files
