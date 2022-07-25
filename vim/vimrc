@@ -1,5 +1,5 @@
 " dedmonds
-" 220711_0025
+" 220724_2103
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -95,9 +95,6 @@ autocmd BufNewFile,BufRead *.rs set number
 "-- LaTeX/TeX ------------------------------------------------------------------
 "display line numbers
 autocmd BufNewFile,BufRead *.tex set number
-"configure tabs
-autocmd BufNewFile,BufRead *.tex set sw=4
-autocmd BufNewFile,BufRead *.tex set tabstop=4
 
 "-- XML ------------------------------------------------------------------------
 "display line numbers
