@@ -104,7 +104,7 @@ bindkey '^R' history-incremental-search-backward
 set -o vi
 alias grep="grep --color"
 alias lah="ls -lah"
-alias c="cd"
+alias c="comp"
 alias e="exit"
 alias tm="tmux"
 #alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
@@ -139,5 +139,8 @@ alias define="$REPO/code/dict/dict.sh"
 # todoist rest api
 alias todo="$REPO/code/todoist/todo.sh"
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
+# doing todos
+alias doing="nvim $REPO/doing/doing.md"
+
+#eval "$($(brew --prefix)/bin/brew shellenv)"
 . "$HOME/.cargo/env"
