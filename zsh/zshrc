@@ -104,10 +104,8 @@ bindkey '^R' history-incremental-search-backward
 set -o vi
 alias grep="grep --color"
 alias lah="ls -lah"
-alias c="comp"
 alias e="exit"
 alias tm="tmux"
-#alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
 alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
 
@@ -139,8 +137,16 @@ alias define="$REPO/code/dict/dict.sh"
 # todoist rest api
 alias todo="$REPO/code/todoist/todo.sh"
 
+eval "$($(brew --prefix)/bin/brew shellenv)"
+. "$HOME/.cargo/env"
+
+# comp
+alias cls="comp cls"
+
+# exp
+alias exp="scala -classpath $REPO/expressions/ exp"
+
 # doing todos
 alias doing="nvim $REPO/doing/doing.md"
 
-#eval "$($(brew --prefix)/bin/brew shellenv)"
-. "$HOME/.cargo/env"
+[ -f "/home/dedmonds/.ghcup/env" ] && source "/home/dedmonds/.ghcup/env" # ghcup-env

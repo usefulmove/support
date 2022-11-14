@@ -1,5 +1,4 @@
-" dedmonds
-" 220725_1316
+" ded ( 221114 )
 
 set nocompatible        "set mode to 'not vi compatible'
 set wrap                "wrap long lines
@@ -29,13 +28,9 @@ set nojoinspaces
 "colorscheme cobalt
 
 "abbreviations
-iabbr bm BOOKMARK
-iabbr fixme FIXME
 iabbr todo TODO
-iabbr removeme REMOVEME
 
 "-- meeting notes template -----------------------------------------------------
-iabbr _meetingnotes meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
 iabbr _mtg meeting notes<CR>(date)<CR><CR>attendees: <CR><CR><CR>notes<CR>  - <CR><CR><CR><ESC>Iquestions<CR>  - <CR><CR><CR><ESC>Iactions (owner)<CR>  - <ESC>/^(date)$<CR>:set number<CR>:set spell<CR>
 
 "display font
@@ -59,48 +54,13 @@ autocmd BufNewFile,BufRead *.c set number
 autocmd BufNewFile,BufRead *.h set number
 autocmd BufNewFile,BufRead *.cpp set number
 
-"-- Java -----------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.java set number
+"-- comp -----------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.cm set ft=comp
+autocmd BufNewFile,BufRead *.cm set number "display line numbers
+autocmd BufNewFile,BufRead *.cmp set ft=comp
+autocmd BufNewFile,BufRead *.cmp set number "display line numbers
 
-"-- JavaScript -----------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.js set number
-
-"-- Matlab/Octave --------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.m set number
-
-"-- Python ---------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.py set number
-autocmd BufNewFile,BufRead *.pyw set number
-"set definition search command mode abbreviation
-autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
-autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
-
-"-- R ---------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.R set number
-autocmd BufNewFile,BufRead *.Rmd set number
-
-"-- Julia ----------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.jl set number
-
-"-- Rust -----------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.rs set number
-
-"-- LaTeX/TeX ------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.tex set number
-
-"-- XML ------------------------------------------------------------------------
-"display line numbers
-autocmd BufNewFile,BufRead *.xml set number
-
-"-- Precise Automation Guidance Programming Language (GPL) ---------------------
+"-- Guidance Programming Language (GPL) Precise Automation (Brooks) ------------
 "set VB.NET file type for .gpl files
 autocmd BufNewFile,BufRead *.gpl set ft=vbnet
 "display line numbers
@@ -116,34 +76,56 @@ autocmd BufNewFile,BufRead *.gpl iabbr _if If cursor_here Then<CR>End If<ESC>:ca
 "set definition search command mode abbreviation
 autocmd BufNewFile,BufRead *.gpl cabbr _def \<\(Sub\\|Function\\|Dim\\|Const\\|Static\\|Public\\|Private\\|Protected\\|Class\)\>\s*
 
-"-- SQL ------------------------------------------------------------------------
-"set file type for .SQL files
-autocmd BufNewFile,BufRead *.SQL set ft=sql
-autocmd BufNewFile,BufRead *.SQL set number "display line numbers
+"-- Java -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.java set number
 
-"-- comp interpreter -----------------------------------------------------------
-autocmd BufNewFile,BufRead *.cm set ft=comp
-autocmd BufNewFile,BufRead *.cm set number "display line numbers
-autocmd BufNewFile,BufRead *.cmp set ft=comp
-autocmd BufNewFile,BufRead *.cmp set number "display line numbers
+"-- JavaScript -----------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.js set number
 
-"-- MediaWiki and Wikipedia markup ---------------------------------------------
-"set Wikipedia file type for .wiki files and Wikipedia online edits
-autocmd BufNewFile,BufRead *.wiki set ft=wikipedia
-autocmd BufRead,BufNewFile *.wikipedia.org.* set ft=wikipedia
+"-- Julia ----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.jl set number
 
-"-- Markdown -------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.md set ft=markdown
-autocmd BufNewFile,BufRead *.md set sw=2
-autocmd BufNewFile,BufRead *.md set tabstop=2
-autocmd BufNewFile,BufRead *.md set number "display line numbers
+"-- LaTeX/TeX ------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.tex set number
+
+"-- Matlab/Octave --------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.m set number
 
 "-- Portable Game Notation (PGN) markup ----------------------------------------
 "set PGN file type for .pgn files
 autocmd BufNewFile,BufRead *.pgn set ft=pgn
 
-"-- Gmail mail mode ------------------------------------------------------------
-"set mail file type for Gmail addresses
-autocmd BufRead,BufNewFile mail.google.com.* set ft=mail
-autocmd BufRead,BufNewFile mail.google.com.* set textwidth=0
-autocmd BufRead,BufNewFile mail.google.com.* set spell
+"-- Python ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.py set number
+autocmd BufNewFile,BufRead *.pyw set number
+"set definition search command mode abbreviation
+autocmd BufNewFile,BufRead *.py cabbr _def \<\(def\)\>\s*
+autocmd BufNewFile,BufRead *.pyw cabbr _def \<\(def\)\>\s*
+
+"-- R ---------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.R set number
+autocmd BufNewFile,BufRead *.Rmd set number
+
+"-- Rust -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.rs set number
+
+"-- Scala -----------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.sc set number
+autocmd BufNewFile,BufRead *.scala set number
+
+"-- SQL ------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.SQL set ft=sql "set file type for .SQL files
+autocmd BufNewFile,BufRead *.SQL set number "display line numbers
+
+"-- XML ------------------------------------------------------------------------
+"display line numbers
+autocmd BufNewFile,BufRead *.xml set number
