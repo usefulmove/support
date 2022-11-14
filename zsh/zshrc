@@ -144,7 +144,7 @@ eval "$($(brew --prefix)/bin/brew shellenv)"
 alias cls="comp cls"
 
 # exp
-alias exp="scala -classpath $REPO/expressions/ exp"
+alias exp="scala -cp $REPO/expressions/ exp"
 
 # doing todos
 alias doing="nvim $REPO/doing/doing.md"
