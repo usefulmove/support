@@ -140,9 +140,6 @@ alias todo="$REPO/code/todoist/todo.sh"
 eval "$($(brew --prefix)/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 
-# comp
-alias cls="comp cls"
-
 # exp
 alias exp="scala -cp $REPO/expressions/ exp"
 
