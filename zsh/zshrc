@@ -147,6 +147,6 @@ alias exp="scala -cp $REPO/expressions/ exp"
 alias doing="nvim $REPO/doing/doing.md"
 
 # explain (OpenAI)
-# alias explain="/home/dedmonds/repos/code/openai/explain.py"
+alias explain="/home/dedmonds/repos/code/openai/explain.py"
 
 [ -f "/home/dedmonds/.ghcup/env" ] && source "/home/dedmonds/.ghcup/env" # ghcup-env
