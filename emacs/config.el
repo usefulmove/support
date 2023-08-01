@@ -78,6 +78,7 @@
 (menu-bar-mode 1)
 
 (defun magic8 ()
+  "Magic 8-ball advice"
   (interactive)
   (let ((magic8-hash (make-hash-table :test 'equal)))
     (puthash 0 "it is certain." magic8-hash)
