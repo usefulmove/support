@@ -56,21 +56,31 @@
         ("iota" . command-iota)
         ("swap" . command-swap)))
 
+; process-op :: string -> [string] -> [stack]
 (defun process-op (op stack)
   (let ((cmd (assoc op cmds)))
     (if cmd
         (funcall (cdr cmd) stack)
-      (cons op stack))))  ; op is not command, add to stack
+        (cons op stack))))  ; op is not command, add to stack
 
+; foldl :: (U -> T -> U) -> U -> [T] -> U
+(defun foldl (f acc lst)
+  (if (null lst)
+      acc
+      (foldl f (funcall f acc (car lst)) (cdr lst))))
+
+; evaluate-ops :: string -> [string] -> [string]
 (defun evaluate-ops (ops stack)
-  (reduce 'process-op ops :initial-value stack))
+  (foldl 'process-op stack  ops))
 
 (defun evaluate-sexp (s-exp)
-  (let ((res (reverse (evaluate-ops (split-string s-exp) '()))))
+  (let ((res (evaluate-ops (split-string s-exp) '())))
     (message "%s" res)))
 
 (defun comp ()
-  "Evaluate S-expression"
+  "Evaluate RPN expression"
   (interactive)
-  (let ((sexp (read-string "Enter S-expression: ")))
+  (let ((sexp (read-string "Enter expression: ")))
     (evaluate-sexp sexp)))
+
+(evaluate-sexp "3 2 +")
