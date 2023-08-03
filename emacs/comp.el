@@ -43,21 +43,23 @@
      (mapcar 'number-to-string (number-sequence 1 (1+ (string-to-number a))))
      rst)))
 
-(setq cmds
-      '(("inv"  . (unary-command (lambda (a) (/ 1.0 a))))
-        ("sqrt" . (unary-command 'sqrt))
-        ("+"    . (binary-command '+))
-        ("-"    . (binary-command '-))
-        ("*"    . (binary-command '*))
-        ("x"    . (binary-command '*))  ; helpful on command line ("*" has to be escaped)
-        ("/"    . (binary-command '/))
-        ("^"    . (binary-command 'expt))
-        ("dup"  . (lambda (stack) (cons (car stack) stack)))
-        ("iota" . command-iota)
-        ("swap" . command-swap)))
+; define primitive commands
+(defvar cmds nil)
+
+(add-to-list 'cmds `("inv"  . ,(unary-command (lambda (a) (/ 1.0 a)))))
+(add-to-list 'cmds `("sqrt" . ,(unary-command 'sqrt)))
+(add-to-list 'cmds `("+"    . ,(binary-command '+)))
+(add-to-list 'cmds `("-"    . ,(binary-command '-)))
+(add-to-list 'cmds `("*"    . ,(binary-command '*)))
+(add-to-list 'cmds `("x"    . ,(binary-command '*)))
+(add-to-list 'cmds `("/"    . ,(binary-command '/)))
+(add-to-list 'cmds `("^"    . ,(binary-command 'expt)))
+(add-to-list 'cmds `("dup"  . ,(lambda (stack) (cons (car stack) stack))))
+(add-to-list 'cmds `("iota" . ,command-iota))
+(add-to-list 'cmds `("swap" . ,command-swap))
 
 ; process-op :: string -> [string] -> [stack]
-(defun process-op (op stack)
+(defun process-op (stack op)
   (let ((cmd (assoc op cmds)))
     (if cmd
         (funcall (cdr cmd) stack)
@@ -71,16 +73,14 @@
 
 ; evaluate-ops :: string -> [string] -> [string]
 (defun evaluate-ops (ops stack)
-  (foldl 'process-op stack  ops))
+  (foldl 'process-op stack ops))
 
 (defun evaluate-sexp (s-exp)
-  (let ((res (evaluate-ops (split-string s-exp) '())))
-    (message "%s" res)))
+  (let ((result (evaluate-ops (split-string s-exp) '())))
+    (message "%s" result)))
 
 (defun comp ()
   "Evaluate RPN expression"
   (interactive)
   (let ((sexp (read-string "Enter expression: ")))
     (evaluate-sexp sexp)))
-
-(evaluate-sexp "3 2 +")
