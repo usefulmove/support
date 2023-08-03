@@ -40,8 +40,8 @@
   (let ((a (car stack))
         (rst (cdr stack)))
     (append
-     (mapcar 'number-to-string (number-sequence 1 (1+ (string-to-number a))))
-     rst)))
+      (mapcar 'number-to-string (number-sequence 1 (string-to-number a)))
+      rst)))
 
 ; define primitive commands
 (defvar cmds nil)
