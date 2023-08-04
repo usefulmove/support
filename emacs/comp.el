@@ -19,8 +19,6 @@
 ;;
 ;;; Code:
 
-(provide 'comp)
-
 (defun unary-command (f)
   (lambda (stack) (cons (number-to-string (funcall f (string-to-number (car stack))))
                         (cdr stack))))
@@ -55,8 +53,8 @@
 (add-to-list 'cmds `("/"    . ,(binary-command '/)))
 (add-to-list 'cmds `("^"    . ,(binary-command 'expt)))
 (add-to-list 'cmds `("dup"  . ,(lambda (stack) (cons (car stack) stack))))
-(add-to-list 'cmds `("iota" . ,command-iota))
-(add-to-list 'cmds `("swap" . ,command-swap))
+(add-to-list 'cmds `("iota" . 'command-iota))
+(add-to-list 'cmds `("swap" . 'command-swap))
 
 ; process-op :: string -> [string] -> [stack]
 (defun process-op (stack op)
@@ -77,10 +75,14 @@
 
 (defun evaluate-sexp (s-exp)
   (let ((result (evaluate-ops (split-string s-exp) '())))
-    (message "%s" result)))
+    (message "~> %s" result)))
 
 (defun comp ()
   "Evaluate RPN expression"
   (interactive)
   (let ((sexp (read-string "Enter expression: ")))
     (evaluate-sexp sexp)))
+
+(provide 'comp)
+
+;; end of comp.el
