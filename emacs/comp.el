@@ -53,8 +53,8 @@
 (add-to-list 'cmds `("/"    . ,(binary-command '/)))
 (add-to-list 'cmds `("^"    . ,(binary-command 'expt)))
 (add-to-list 'cmds `("dup"  . ,(lambda (stack) (cons (car stack) stack))))
-(add-to-list 'cmds `("iota" . 'command-iota))
-(add-to-list 'cmds `("swap" . 'command-swap))
+(add-to-list 'cmds `("iota" . ,'command-iota))
+(add-to-list 'cmds `("swap" . ,'command-swap))
 
 ; process-op :: string -> [string] -> [stack]
 (defun process-op (stack op)
