@@ -107,7 +107,9 @@
 (global-set-key (kbd "C-c t") 'term)
 
 (custom-set-faces
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#fff670"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#00c0ff")))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#858585"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#0080ff")))))
 
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
