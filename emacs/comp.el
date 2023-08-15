@@ -76,13 +76,13 @@
 (defun evaluate-ops (ops stack)
   (foldl 'process-op stack ops))
 
-; evaluate-sexp :: string -> null (side-effects)
+; evaluate-sexp :: string -> nil (side-effects)
 (defun evaluate-sexp (s-exp)
   (let ((result (evaluate-ops (split-string s-exp) '())))
     (kill-new (car result))  ; copy to clipboard
     (message "%s" result)))  ; display as user message
 
-; cmp :: string -> null (side-effects)
+; cmp :: string -> nil (side-effects)
 (fset 'cmp #'evaluate-sexp)
 
 ; interactive command
