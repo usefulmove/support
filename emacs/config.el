@@ -106,4 +106,8 @@
 (global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
 (global-set-key (kbd "C-c t") 'term)
 
+(custom-set-faces
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#fff670"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#00c0ff")))))
+
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
