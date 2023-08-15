@@ -103,6 +103,7 @@
     (puthash 19 "very doubtful." magic8-hash)
       (message (concat "magic8: "(gethash (random (hash-table-count magic8-hash)) magic8-hash)))))
 
+(global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
 (global-set-key (kbd "C-c t") 'term)
 
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
