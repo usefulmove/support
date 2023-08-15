@@ -27,7 +27,7 @@
 ; binary-command :: (number -> number -> number) -> ([string] -> [string])
 (defun binary-command (f)
   (lambda (stack) (cons (number-to-string (funcall f (string-to-number (cadr stack))
-                                               (string-to-number (car stack))))
+                                                     (string-to-number (car stack))))
                         (cddr stack))))
 
 (defun command-swap (stack)
