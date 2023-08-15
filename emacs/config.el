@@ -77,6 +77,11 @@
 
 (menu-bar-mode 1)
 
+(use-package org-superstar
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+
 (defun magic8 ()
   "Magic 8-ball advice"
   (interactive)
