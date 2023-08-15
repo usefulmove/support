@@ -77,8 +77,8 @@
 
 (menu-bar-mode 1)
 
-(use-package org-superstar
-  :ensure t
+(use-package! org-superstar
+  :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
@@ -112,9 +112,9 @@
 (global-set-key (kbd "C-c t") 'term)
 
 (custom-set-faces
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#858585"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#0080ff")))))
+  '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
+  '(rainbow-delimiters-depth-2-face ((t (:foreground "#858585"))))
+  '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
+  '(rainbow-delimiters-depth-4-face ((t (:foreground "#0080ff")))))
 
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
