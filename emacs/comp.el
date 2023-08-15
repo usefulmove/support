@@ -54,6 +54,7 @@
 (add-to-list 'cmds `("^"    . ,(binary-command 'expt)))
 (add-to-list 'cmds `("dup"  . ,(lambda (stack) (cons (car stack) stack))))
 (add-to-list 'cmds `("iota" . ,'command-iota))
+(add-to-list 'cmds `("io"   . ,'command-iota))
 (add-to-list 'cmds `("swap" . ,'command-swap))
 
 ; process-op :: string -> [string] -> [stack]
@@ -73,9 +74,14 @@
 (defun evaluate-ops (ops stack)
   (foldl 'process-op stack ops))
 
+; evaluate-sexp :: string -> null (side-effects)
 (defun evaluate-sexp (s-exp)
   (let ((result (evaluate-ops (split-string s-exp) '())))
-    (message "~> %s" result)))
+    (kill-new (car result))  ; copy to clipboard
+    (message "%s" result)))  ; display as user message
+
+; cmp :: string -> null
+(fset 'cmp #'evaluate-sexp)
 
 (defun comp ()
   "Evaluate RPN expression"
