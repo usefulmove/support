@@ -104,3 +104,5 @@
       (message (concat "magic8: "(gethash (random (hash-table-count magic8-hash)) magic8-hash)))))
 
 (global-set-key (kbd "C-c t") 'term)
+
+(load-file "/home/dedmonds/repos/support/emacs/comp.el")
