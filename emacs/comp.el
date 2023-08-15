@@ -5,9 +5,9 @@
 ;; Author: Duane Edmonds
 ;; Maintainer: Duane Edmonds <duane.edmonds@gmail.com>
 ;; Created: August 01, 2023
-;; Modified: August 01, 2023
+;; Modified: August 14, 2023
 ;; Version: 0.0.1
-;; Keywords:
+;; Keywords: interpreter, reverse Polish notation, RPN, calculator
 ;; Homepage: https://github.com/dedmonds/comp
 ;; Package-Requires: ((emacs "24.3"))
 ;;
@@ -19,10 +19,12 @@
 ;;
 ;;; Code:
 
+; unary-command :: (number -> number) -> ([string] -> [string])
 (defun unary-command (f)
   (lambda (stack) (cons (number-to-string (funcall f (string-to-number (car stack))))
                         (cdr stack))))
 
+; binary-command :: (number -> number -> number) -> ([string] -> [string])
 (defun binary-command (f)
   (lambda (stack) (cons (number-to-string (funcall f (string-to-number (cadr stack))
                                                (string-to-number (car stack))))
@@ -80,9 +82,10 @@
     (kill-new (car result))  ; copy to clipboard
     (message "%s" result)))  ; display as user message
 
-; cmp :: string -> null
+; cmp :: string -> null (side-effects)
 (fset 'cmp #'evaluate-sexp)
 
+; interactive command
 (defun comp ()
   "Evaluate RPN expression"
   (interactive)
