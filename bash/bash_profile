@@ -5,84 +5,10 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # aliases
 alias grep="grep --color"
-alias gvimr="gvim -R" # open in read-only mode
-alias throttle_off="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias throttle_on="sudo sysctl debug.lowpri_throttle_enabled=1"
-alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"
-
-# functions
-fndh() {
-    find ~ -path "*/dedmonds/Library/*" -prune -o -iregex "$1" -print
-}
-
-fnd() {
-    find . -iregex "$1" | gvim -
-}
-
-# geektool support utility
-focus() {
-    output_type="NORMAL"
-    BARE_OUTPUT_TYPE="BARE"
-
-    while [[ $# -gt 1 ]]
-    do
-        arg="$1"
-
-        case $arg in
-            -b|--bare)
-            output_type=$BARE_OUTPUT_TYPE
-            ;;
-        esac
-
-        shift # shift after checking all the cases to get the next option
-    done
-
-
-    # output string to file
-    if [ "$output_type" = "$BARE_OUTPUT_TYPE" ]; then
-        output_message="$1"
-    else
-        output_message="focus ( $1 )"
-    fi
-
-    echo "$output_message" > ~/focus
-
-    exit
-}
-
-# MacPorts Installer addition on 2012-08-05_at_00:34:07: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+alias gcp="git commit -m '...' && git push"
 
 export EDITOR=vi
-
-# fix for el capitan update that broke latex installation
-export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
-
-# added by anaconda2 4.0.0 installer
-export PATH="//anaconda/bin:$PATH"
 
 # history commands
 export HISTCONTROL=erasedups # erase duplicates from history
 export HISTCONTROL=ignorespace # do not include commands with an initial space in history
-
-# git completion script
-source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dedmonds/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/dedmonds/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/dedmonds/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/dedmonds/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$HOME/.cargo/env"
