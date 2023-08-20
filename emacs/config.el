@@ -108,10 +108,17 @@
     (puthash 19 "very doubtful." magic8-hash)
       (message (concat "magic8: "(gethash (random (hash-table-count magic8-hash)) magic8-hash)))))
 
-(global-set-key (kbd "C-c t") 'term)
-(global-set-key (kbd "<f8>") 'term)
-(global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
-(global-set-key (kbd "<f5>") 'eros-eval-last-sexp)
+(global-set-key (kbd "C-c t") 'term) ; ( remove when ready )
+(global-set-key (kbd "<f8>") 'term) ; ( remove when ready )
+(global-set-key (kbd "C-c e") 'eros-eval-last-sexp) ; ( remove when ready )
+(global-set-key (kbd "<f5>") 'eros-eval-last-sexp) ; ( remove when ready )
+
+; unbind C-j and bind to custom layer
+(global-set-key (kbd "C-j") nil)
+(global-set-key (kbd "C-j o") 'org-open-at-point)
+(global-set-key (kbd "C-j t") 'term)
+(global-set-key (kbd "C-j e") 'eros-eval-last-sexp)
+
 
 (custom-set-faces
   '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
