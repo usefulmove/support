@@ -112,6 +112,7 @@
 (global-set-key (kbd "<f8>") 'term) ; ( remove when ready )
 (global-set-key (kbd "C-c e") 'eros-eval-last-sexp) ; ( remove when ready )
 (global-set-key (kbd "<f5>") 'eros-eval-last-sexp) ; ( remove when ready )
+(global-set-key (kbd "C-c o") 'org-open-at-point) ; ( remove when ready )
 
 ; unbind C-j and bind to custom layer
 (global-set-key (kbd "C-j") nil)
