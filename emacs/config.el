@@ -126,4 +126,6 @@
   '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
   '(rainbow-delimiters-depth-4-face ((t (:foreground "#0080ff")))))
 
+(setq fancy-splash-image "~/.config/doom/logo-alpha.png")
+
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
