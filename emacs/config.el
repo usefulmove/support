@@ -82,6 +82,7 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
+; load magic 8 ball plugin
 (defun magic8 ()
   "Magic 8-ball advice"
   (interactive)
@@ -115,6 +116,7 @@
 (global-set-key (kbd "C-c o") 'org-open-at-point)   ; open hyperlink
 (global-set-key (kbd "C-c w") 'visual-line-mode)    ; toggle word wrap
 
+; set rainbow parens colors
 (custom-set-faces
   '(rainbow-delimiters-depth-1-face ((t (:foreground "#e9c687"))))
   '(rainbow-delimiters-depth-2-face ((t (:foreground "#858585"))))
@@ -123,8 +125,13 @@
 
 (setq fancy-splash-image "~/.config/doom/logo-alpha.png")
 
+; load comp RPN interpreter
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
 
+; load enc encryption library
+(load-file "/home/dedmonds/repos/enc/src/enc.el")
+
+; set cursor colors and behaviors
 (after! doom-themes
   (setq evil-normal-state-cursor '(box "#fff670")
         evil-insert-state-cursor '(bar "#00c0ff")
