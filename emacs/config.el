@@ -109,10 +109,11 @@
       (message (concat "magic8: "(gethash (random (hash-table-count magic8-hash)) magic8-hash)))))
 
 ; custom keybinding layer
-(global-set-key (kbd "C-c b") 'term) ; bash terminal
-(global-set-key (kbd "C-c t") 'term) ; ( remove when ready . same as above )
-(global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
-(global-set-key (kbd "C-c o") 'org-open-at-point)
+(global-set-key (kbd "C-c b") 'term)                ; (bash) terminal
+(global-set-key (kbd "C-c t") 'term)                ; ( remove? same as above )
+(global-set-key (kbd "C-c e") 'eros-eval-last-sexp) ; execute Elisp S-expression
+(global-set-key (kbd "C-c o") 'org-open-at-point)   ; open hyperlink
+(global-set-key (kbd "C-c w") 'visual-line-mode)    ; toggle word wrap
 
 (custom-set-faces
   '(rainbow-delimiters-depth-1-face ((t (:foreground "#e9c687"))))
