@@ -109,7 +109,8 @@
       (message (concat "magic8: "(gethash (random (hash-table-count magic8-hash)) magic8-hash)))))
 
 ; custom keybinding layer
-(global-set-key (kbd "C-c t") 'term) ;
+(global-set-key (kbd "C-c b") 'term) ; bash terminal
+(global-set-key (kbd "C-c t") 'term) ; ( remove when ready . same as above )
 (global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
 (global-set-key (kbd "C-c o") 'org-open-at-point)
 
