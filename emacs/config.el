@@ -115,11 +115,17 @@
 (global-set-key (kbd "C-c o") 'org-open-at-point)
 
 (custom-set-faces
-  '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
+  '(rainbow-delimiters-depth-1-face ((t (:foreground "#e9c687"))))
   '(rainbow-delimiters-depth-2-face ((t (:foreground "#858585"))))
   '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
-  '(rainbow-delimiters-depth-4-face ((t (:foreground "#0080ff")))))
+  '(rainbow-delimiters-depth-4-face ((t (:foreground "#00c0ff")))))
 
 (setq fancy-splash-image "~/.config/doom/logo-alpha.png")
 
 (load-file "/home/dedmonds/repos/support/emacs/comp.el")
+
+(after! doom-themes
+  (setq evil-normal-state-cursor '(box "#fff670")
+        evil-insert-state-cursor '(bar "#00c0ff")
+        evil-visual-state-cursor '(hollow "#e9c687"))
+        (blink-cursor-mode 1))
