@@ -111,7 +111,7 @@
 ; custom keybinding layer
 (global-set-key (kbd "C-c t") 'term) ;
 (global-set-key (kbd "C-c e") 'eros-eval-last-sexp)
-(global-set-key (kbd "C-j o") 'org-open-at-point)
+(global-set-key (kbd "C-c o") 'org-open-at-point)
 
 (custom-set-faces
   '(rainbow-delimiters-depth-1-face ((t (:foreground "#fffc67"))))
