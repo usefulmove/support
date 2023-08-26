@@ -93,3 +93,12 @@
         evil-insert-state-cursor '(bar "#00c0ff")
         evil-visual-state-cursor '(hollow "#e9c687"))
         (blink-cursor-mode 1))
+
+;; load comp RPN interpreter
+(load-file "/home/dedmonds/repos/support/emacs/comp.el")
+
+;; load enc encryption library
+(load-file "/home/dedmonds/repos/enc/src/enc.el")
+
+;; load magic 8-ball plugin
+(load-file "/home/dedmonds/repos/support/emacs/magic.el")
