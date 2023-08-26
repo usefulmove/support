@@ -1,17 +1,21 @@
-;;; comp.el -*- lexical-binding: t; -*-
+;;; comp.el --- RPN interpreter -*- lexical-binding: t; -*-
 ;;
-;; Copyright (C) 2023 Robert Duane Edmonds
+;; Copyright (c) 2023 Duane Edmonds
 ;;
 ;; Author: Duane Edmonds
 ;; Maintainer: Duane Edmonds <duane.edmonds@gmail.com>
 ;; Created: August 01, 2023
-;; Modified: August 15, 2023
+;; Modified: August 25, 2023
 ;; Version: 0.0.1
-;; Keywords: interpreter, reverse Polish notation, RPN, calculator
+;; Keywords: convenience data tools
 ;; Homepage: https://github.com/dedmonds/comp
 ;; Package-Requires: ((emacs "24.3"))
 ;;
 ;; This file is not part of GNU Emacs.
+;;
+;;; Commentary:
+;;
+;;  Description:  RPN interpreter
 ;;
 ;;; Code:
 
@@ -108,6 +112,6 @@
   (let ((sexp (read-string "Enter expression: ")))
     (evaluate-sexp sexp)))
 
-(provide 'comp)
 
+(provide 'comp)
 ;; end of comp.el
