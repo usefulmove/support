@@ -84,12 +84,12 @@
 
 (setq fancy-splash-image "~/.config/doom/logo-alpha.png")
 
-;; load gum user interface
-(load-file "/home/dedmonds/repos/gum/src/gum.el")
-
 ; set cursor colors and behaviors
 (after! doom-themes
   (setq evil-normal-state-cursor '(box "#fff670")
         evil-insert-state-cursor '(bar "#00c0ff")
         evil-visual-state-cursor '(hollow "#e9c687"))
         (blink-cursor-mode 1))
+
+;; load gum user interface
+(load-file "/home/dedmonds/repos/gum/src/gum.el")
