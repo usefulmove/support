@@ -75,7 +75,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(menu-bar-mode 1)
+(menu-bar-mode 0)
 
 (use-package! org-superstar
   :after org
@@ -83,6 +83,8 @@
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
 (setq fancy-splash-image "~/.config/doom/logo-alpha.png")
+
+(setq org-hide-emphasis-markers t)
 
 ; set cursor colors and behaviors
 (after! doom-themes
