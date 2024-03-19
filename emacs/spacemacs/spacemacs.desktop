@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Spacemacs
+Comment=Spacemacs Client
+Icon=/home/dedmonds/repos/support/emacs/spacemacs/spacemacs.png
+Exec=/usr/bin/emacsclient -c -a ''
+Terminal=false
+Categories=Utility;
