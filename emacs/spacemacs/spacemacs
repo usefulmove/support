@@ -575,8 +575,20 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  ; load Gum library
+  (load-file "~/repos/gum/src/gum.el")
+
+  ; set highlight parens colors (note: different than rainbow parens package)
   (with-eval-after-load 'highlight-parentheses
-    (setq hl-paren-colors '("#00e0ff" "#00b0ff" "#0060ff" "#0000ff"))))
+    (setq hl-paren-colors '("#00e0ff" "#00b0ff" "#0060ff" "#0000ff")))
+
+  ; configure custom keybinding layer
+  (spacemacs/set-leader-keys "o e" 'gum-insert-eval-last-sexp)
+
+  ; default font temporary workaround. dotspacemacs-default-font not working.
+  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :height 135))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
