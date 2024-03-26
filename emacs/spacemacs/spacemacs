@@ -38,7 +38,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -428,7 +428,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -585,6 +585,14 @@ before packages are loaded."
 
   ; configure custom keybinding layer
   (spacemacs/set-leader-keys "o e" 'gum-insert-eval-last-sexp)
+  (spacemacs/set-leader-keys "o +" 'spacemacs/scale-font-transient-state/spacemacs/scale-up-font)
+  (spacemacs/set-leader-keys "o -" 'spacemacs/scale-font-transient-state/spacemacs/scale-down-font)
+  (spacemacs/set-leader-keys "o n" 'display-line-numbers-mode)
+  (spacemacs/set-leader-keys "o c" 'gum-move-line-to-eob)
+  (spacemacs/set-leader-keys "o r e" 'enc-encrypt-region)
+  (spacemacs/set-leader-keys "o r d" 'enc-decrypt-region)
+  (spacemacs/set-leader-keys "o b e" 'enc-encrypt-buffer)
+  (spacemacs/set-leader-keys "o b d" 'enc-decrypt-buffer)
 
   ; default font temporary workaround. dotspacemacs-default-font not working.
   (set-face-attribute 'default nil :family "Source Code Pro")
