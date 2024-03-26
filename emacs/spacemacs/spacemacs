@@ -583,7 +583,11 @@ before packages are loaded."
   (with-eval-after-load 'highlight-parentheses
     (setq hl-paren-colors '("#00e0ff" "#00b0ff" "#0060ff" "#0000ff")))
 
-  ; configure custom keybinding layer
+  ; configure custom keybinding layer;; Add descriptions for custom keybindings
+  (with-eval-after-load 'which-key
+    (which-key-add-key-based-replacements
+      "SPC o r" "region"
+      "SPC o b" "buffer"))
   (spacemacs/set-leader-keys "o e" 'gum-insert-eval-last-sexp)
   (spacemacs/set-leader-keys "o +" 'spacemacs/scale-font-transient-state/spacemacs/scale-up-font)
   (spacemacs/set-leader-keys "o -" 'spacemacs/scale-font-transient-state/spacemacs/scale-down-font)
