@@ -260,7 +260,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Space Mono"
                                :size 13.0
                                :weight normal
                                :width normal)
@@ -581,13 +581,15 @@ before packages are loaded."
 
   ; set highlight parens colors (note: different than rainbow parens package)
   (with-eval-after-load 'highlight-parentheses
-    (setq hl-paren-colors '("#00e0ff" "#00b0ff" "#0060ff" "#0000ff")))
+    (setq hl-paren-colors '("#fff670" "#00e0ff" "#0090ff" "#0000ff")))
+    ;(setq hl-paren-colors '("#00e0ff" "#00b0ff" "#0060ff" "#0000ff")))
 
-  ; configure custom keybinding layer;; Add descriptions for custom keybindings
-  (with-eval-after-load 'which-key
+  ; configure custom keybinding layer
+  (with-eval-after-load 'which-key ; add descriptions for custom keybindings
     (which-key-add-key-based-replacements
       "SPC o r" "region"
-      "SPC o b" "buffer"))
+      "SPC o b" "buffer"
+      "SPC o l" "lisp structural editing"))
   (spacemacs/set-leader-keys "o e" 'gum-insert-eval-last-sexp)
   (spacemacs/set-leader-keys "o +" 'spacemacs/scale-font-transient-state/spacemacs/scale-up-font)
   (spacemacs/set-leader-keys "o -" 'spacemacs/scale-font-transient-state/spacemacs/scale-down-font)
@@ -597,9 +599,18 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o r d" 'enc-decrypt-region)
   (spacemacs/set-leader-keys "o b e" 'enc-encrypt-buffer)
   (spacemacs/set-leader-keys "o b d" 'enc-decrypt-buffer)
+  ; lisp structural editing
+  (spacemacs/set-leader-keys "o l c" 'sp-copy-sexp)
+  (spacemacs/set-leader-keys "o l s" 'sp-forward-slurp-sexp)
+  (spacemacs/set-leader-keys "o l S" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys "o l b" 'sp-forward-barf-sexp)
+  (spacemacs/set-leader-keys "o l B" 'sp-backward-barf-sexp)
+  (spacemacs/set-leader-keys "o l w" 'sp-wrap-round)
+  (spacemacs/set-leader-keys "o l u" 'sp-unwrap-sexp)
+  (spacemacs/set-leader-keys "o l r" 'sp-raise-sexp)
 
   ; default font temporary workaround. dotspacemacs-default-font not working.
-  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :family "Space Mono")
   (set-face-attribute 'default nil :height 135))
 
 
