@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -40,12 +40,14 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
+     clojure
      emacs-lisp
      git
      helm
+     javascript
      ;; lsp
      markdown
-     multiple-cursors
+     ;; multiple-cursors
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -67,8 +69,8 @@ This function should only modify configuration layer settings."
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages
-   '(doom-themes
-     racket-mode)
+   '(racket-mode
+     doom-themes)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -262,7 +264,7 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Space Mono"
-                               :size 13.0
+                               :size 14.0
                                :weight normal
                                :width normal)
 
@@ -503,7 +505,7 @@ It should only modify the values of Spacemacs settings."
    ;; Color highlight trailing whitespace in all prog-mode and text-mode derived
    ;; modes such as c++-mode, python-mode, emacs-lisp, html-mode, rst-mode etc.
    ;; (default t)
-   dotspacemacs-show-trailing-whitespace t
+   dotspacemacs-show-trailing-whitespace nil
 
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
@@ -587,23 +589,27 @@ before packages are loaded."
   (with-eval-after-load 'highlight-parentheses
     (setq hl-paren-colors '("#fff670" "#00e0ff" "#0090ff" "#0000ff")))
 
-  ; configure custom keybinding layer
+  ; configure custom keybinding layers
   (with-eval-after-load 'which-key ; add descriptions for custom keybindings
     (which-key-add-key-based-replacements
-      "SPC o r" "region"
       "SPC o b" "buffer"
+      "SPC o r" "region"
       "SPC o l" "lisp structural editing"))
   (spacemacs/set-leader-keys "o e" 'gum-insert-eval-last-sexp)
-  (spacemacs/set-leader-keys "o +" 'spacemacs/scale-font-transient-state/spacemacs/scale-up-font)
-  (spacemacs/set-leader-keys "o -" 'spacemacs/scale-font-transient-state/spacemacs/scale-down-font)
+  (spacemacs/set-leader-keys "o d" (lambda ()
+                                     (interactive)
+                                     (find-file "~/repos/doing/doing.org")))
+  (spacemacs/set-leader-keys "o f" 'spacemacs/scale-font-transient-state/spacemacs/scale-up-font)
   (spacemacs/set-leader-keys "o n" 'display-line-numbers-mode)
   (spacemacs/set-leader-keys "o c" 'gum-move-line-to-eob) ; complete
   (spacemacs/set-leader-keys "o !" 'eshell)
-  (spacemacs/set-leader-keys "o r e" 'enc-encrypt-region)
-  (spacemacs/set-leader-keys "o r d" 'enc-decrypt-region)
+  ; buffer layer
   (spacemacs/set-leader-keys "o b e" 'enc-encrypt-buffer)
   (spacemacs/set-leader-keys "o b d" 'enc-decrypt-buffer)
-  ; lisp - structural editing and evaluation
+  ; region layer
+  (spacemacs/set-leader-keys "o r e" 'enc-encrypt-region)
+  (spacemacs/set-leader-keys "o r d" 'enc-decrypt-region)
+  ; lisp structural editing and evaluation layer
   (spacemacs/set-leader-keys "o l c" 'sp-copy-sexp)
   (spacemacs/set-leader-keys "o l s" 'sp-forward-slurp-sexp)
   (spacemacs/set-leader-keys "o l S" 'sp-backward-slurp-sexp)
@@ -615,19 +621,24 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o l t" 'sp-transpose-sexp)
   (spacemacs/set-leader-keys "o l e" 'eval-last-sexp)
 
+  (spacemacs/set-leader-keys "o l d" 'gum-forward-delete-sexp)
+  (spacemacs/set-leader-keys "o l D" 'gum-backward-delete-sexp)
+
   ; default font temporary workaround. dotspacemacs-default-font not working.
   (set-face-attribute 'default nil :family "Space Mono")
-  (set-face-attribute 'default nil :height 160)
+  (set-face-attribute 'default nil :height 140)
 
   ; eshell aliases
   (defun eshell/ff (&rest args)
     "Open a file in Emacs from eshell with find-file."
     (if (null args)
-        (message "You must specify a file to open")
+        (message "You must select a file to open")
       (find-file (car args))))
 
   (setq geiser-active-implementations '(chez))
-  (setq geiser-chez-binary "scheme"))
+  (setq geiser-chez-binary "scheme")
+
+  (global-highlight-parentheses-mode -1))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
