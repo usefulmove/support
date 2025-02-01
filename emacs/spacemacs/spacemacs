@@ -603,6 +603,7 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o n" 'display-line-numbers-mode)
   (spacemacs/set-leader-keys "o c" 'gum-move-line-to-eob) ; complete
   (spacemacs/set-leader-keys "o !" 'eshell)
+  (spacemacs/set-leader-keys "o w" 'toggle-truncate-lines) ; line wrap
   ; buffer layer
   (spacemacs/set-leader-keys "o b e" 'enc-encrypt-buffer)
   (spacemacs/set-leader-keys "o b d" 'enc-decrypt-buffer)
