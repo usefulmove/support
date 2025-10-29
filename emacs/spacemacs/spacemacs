@@ -32,7 +32,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(sql
+     csv
+     html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -42,7 +44,7 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      clojure
      emacs-lisp
-     ;; git
+     git
      helm
      javascript
      ;; lsp
@@ -70,7 +72,8 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages
    '(racket-mode
-     doom-themes)
+     doom-themes
+     kanagawa-themes)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -244,8 +247,10 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-nord
-                         doom-material-dark)
+   dotspacemacs-themes
+   '(kanagawa-wave
+     doom-nord
+     doom-material-dark)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -474,7 +479,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "ack" "grep")
 
    ;; Format specification for setting the frame title.
    ;; %a - the `abbreviated-file-name', or `buffer-name'
@@ -561,7 +566,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-       )
+  )
 
 
 (defun dotspacemacs/user-load ()
@@ -579,17 +584,17 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  ; load Gum library
+  ;; load Gum library
   (load-file "~/repos/gum/src/gum.el")
 
-  ; do not consider hyphens to be word breaks
+  ;; do not consider hyphens to be word breaks
   (modify-syntax-entry ?- "w" (standard-syntax-table))
 
-  ; set highlight parens colors (note: different than rainbow parens package)
+  ;; set highlight parens colors (note: different than rainbow parens package)
   (with-eval-after-load 'highlight-parentheses
     (setq hl-paren-colors '("#fff670" "#00e0ff" "#0090ff" "#0000ff")))
 
-  ; configure custom keybinding layers
+  ;; configure custom keybinding layers
   (with-eval-after-load 'which-key ; add descriptions for custom keybindings
     (which-key-add-key-based-replacements
       "SPC o b" "buffer"
@@ -604,13 +609,13 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o c" 'gum-move-line-to-eob) ; complete
   (spacemacs/set-leader-keys "o !" 'eshell)
   (spacemacs/set-leader-keys "o w" 'visual-line-mode) ; line wrap
-  ; buffer layer
+  ;; buffer layer
   (spacemacs/set-leader-keys "o b e" 'enc-encrypt-buffer)
   (spacemacs/set-leader-keys "o b d" 'enc-decrypt-buffer)
-  ; region layer
+  ;; region layer
   (spacemacs/set-leader-keys "o r e" 'enc-encrypt-region)
   (spacemacs/set-leader-keys "o r d" 'enc-decrypt-region)
-  ; lisp structural editing and evaluation layer
+  ;; lisp structural editing and evaluation layer
   (spacemacs/set-leader-keys "o l c" 'sp-copy-sexp)
   (spacemacs/set-leader-keys "o l s" 'sp-forward-slurp-sexp)
   (spacemacs/set-leader-keys "o l S" 'sp-backward-slurp-sexp)
@@ -625,11 +630,11 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o l d" 'gum-forward-delete-sexp)
   (spacemacs/set-leader-keys "o l D" 'gum-backward-delete-sexp)
 
-  ; default font temporary workaround. dotspacemacs-default-font not working.
+  ;; default font temporary workaround. dotspacemacs-default-font not working.
   (set-face-attribute 'default nil :family "Space Mono")
   (set-face-attribute 'default nil :height 140)
 
-  ; eshell aliases
+  ;; eshell aliases
   (defun eshell/ff (&rest args)
     "Open a file in Emacs from eshell with find-file."
     (if (null args)
@@ -649,45 +654,94 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(evil-want-Y-yank-to-eol nil)
- '(helm-completion-style 'helm-fuzzy)
- '(hl-sexp-background-color "#1c1f26")
- '(hl-todo-keyword-faces
-   '(("TODO" . "#dc752f")
-     ("NEXT" . "#dc752f")
-     ("THEM" . "#2d9574")
-     ("PROG" . "#4f97d7")
-     ("OKAY" . "#4f97d7")
-     ("DONT" . "#f2241f")
-     ("FAIL" . "#f2241f")
-     ("DONE" . "#86dc2f")
-     ("NOTE" . "#b1951d")
-     ("KLUDGE" . "#b1951d")
-     ("HACK" . "#b1951d")
-     ("TEMP" . "#b1951d")
-     ("FIXME" . "#dc752f")
-     ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f")))
- '(ispell-dictionary nil)
- '(line-number-mode t)
- '(org-fontify-done-headline nil)
- '(org-fontify-todo-headline nil)
- '(package-selected-packages
-   '(dap-mode import-js grizzl js-doc js2-refactor multiple-cursors livid-mode nodejs-repl npm-mode skewer-mode js2-mode tern add-node-modules-path company-web web-completion-data counsel-css emmet-mode helm-css-scss impatient-mode simple-httpd prettier-js pug-mode sass-mode haml-mode scss-mode slim-mode tagedit web-beautify web-mode lsp-docker lsp-treemacs bui lsp-pyright lsp-python-ms geiser blacken code-cells company-anaconda anaconda-mode counsel-gtags counsel swiper ivy cython-mode ggtags helm-cscope helm-pydoc importmagic epc ctable concurrent deferred live-py-mode lsp-mode nose pip-requirements pipenv load-env-vars pippel poetry py-isort pydoc pyenv-mode pythonic pylookup pytest pyvenv sphinx-doc stickyfunc-enhance xcscope yapfify color-identifiers-mode rainbow-identifiers rainbow-mode forge yaml ghub closql emacsql treepy git-link git-messenger git-modes git-timemachine gitignore-templates helm-git-grep helm-ls-git smeargle treemacs-magit magit-section git-commit with-editor transient seq evil-org gnuplot helm-org-rifle htmlize org-cliplink org-contrib org-download org-mime org-pomodoro alert log4e gntp org-present org-project-capture org-category-capture org-rich-yank auto-dictionary flycheck-pos-tip pos-tip flyspell-correct-helm flyspell-correct company-emoji company emoji-cheat-sheet-plus gh-md markdown-toc markdown-mode valign vmd-mode magit doom-themes racket-mode nord-theme zenburn-theme material-theme ws-butler writeroom-mode winum which-key volatile-highlights vim-powerline vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org term-cursor symon symbol-overlay string-inflection string-edit-at-point spacemacs-whitespace-cleanup spacemacs-purpose-popwin spaceline space-doc restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete holy-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-descbinds helm-comint helm-ag google-translate golden-ratio flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-evilified-state evil-escape evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile all-the-icons aggressive-indent ace-link ace-jump-helm-line)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#fff670"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#c792ea"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#00c0ff")))))
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(ansi-color-faces-vector
+     [default bold shadow italic underline bold bold-italic bold])
+   '(evil-want-Y-yank-to-eol nil)
+   '(helm-completion-style 'helm-fuzzy)
+   '(hl-sexp-background-color "#1c1f26")
+   '(hl-todo-keyword-faces
+     '(("TODO" . "#dc752f") ("NEXT" . "#dc752f") ("THEM" . "#2d9574")
+       ("PROG" . "#4f97d7") ("OKAY" . "#4f97d7") ("DONT" . "#f2241f")
+       ("FAIL" . "#f2241f") ("DONE" . "#86dc2f") ("NOTE" . "#b1951d")
+       ("KLUDGE" . "#b1951d") ("HACK" . "#b1951d") ("TEMP" . "#b1951d")
+       ("FIXME" . "#dc752f") ("XXX+" . "#dc752f") ("\\?\\?\\?+" . "#dc752f")))
+   '(ispell-dictionary nil)
+   '(line-number-mode t)
+   '(org-fontify-done-headline nil)
+   '(org-fontify-todo-headline nil)
+   '(package-selected-packages
+     '(ace-jump-helm-line ace-link add-node-modules-path aggressive-indent alert
+                          all-the-icons anaconda-mode auto-compile auto-dictionary
+                          auto-highlight-symbol blacken bui centered-cursor-mode
+                          clean-aindent-mode closql code-cells
+                          color-identifiers-mode column-enforce-mode company
+                          company-anaconda company-emoji company-web concurrent
+                          cond-let counsel counsel-css counsel-gtags csv-mode
+                          ctable cython-mode dap-mode deferred define-word devdocs
+                          diminish dired-quick-sort doom-themes dotenv-mode
+                          drag-stuff dumb-jump editorconfig elisp-def
+                          elisp-slime-nav emacsql emmet-mode
+                          emoji-cheat-sheet-plus emr epc eval-sexp-fu evil-anzu
+                          evil-args evil-cleverparens evil-collection
+                          evil-easymotion evil-escape evil-evilified-state
+                          evil-exchange evil-goggles evil-iedit-state
+                          evil-indent-plus evil-lion evil-lisp-state evil-matchit
+                          evil-mc evil-nerd-commenter evil-numbers evil-org
+                          evil-surround evil-textobj-line evil-tutor
+                          evil-unimpaired evil-visual-mark-mode evil-visualstar
+                          expand-region eyebrowse fancy-battery flx-ido
+                          flycheck-elsa flycheck-package flycheck-pos-tip
+                          flyspell-correct flyspell-correct-helm forge geiser
+                          ggtags gh-md ghub git-commit git-link git-messenger
+                          git-modes git-timemachine gitignore-templates gntp
+                          gnuplot golden-ratio google-translate grizzl haml-mode
+                          helm-ag helm-comint helm-cscope helm-css-scss
+                          helm-descbinds helm-git-grep helm-ls-git helm-make
+                          helm-mode-manager helm-org helm-org-rifle
+                          helm-projectile helm-purpose helm-pydoc helm-swoop
+                          helm-themes helm-xref hide-comnt highlight-indentation
+                          highlight-numbers highlight-parentheses hl-todo
+                          holy-mode htmlize hungry-delete hybrid-mode
+                          impatient-mode import-js importmagic indent-guide info+
+                          inspector ivy js-doc js2-mode js2-refactor
+                          kanagawa-themes link-hint live-py-mode livid-mode llama
+                          load-env-vars log4e lorem-ipsum lsp-docker lsp-mode
+                          lsp-pyright lsp-python-ms lsp-treemacs macrostep magit
+                          magit-section markdown-mode markdown-toc material-theme
+                          multi-line multiple-cursors nameless nodejs-repl
+                          nord-theme nose npm-mode open-junk-file
+                          org-category-capture org-cliplink org-contrib
+                          org-download org-mime org-pomodoro org-present
+                          org-project-capture org-rich-yank org-superstar overseer
+                          paradox password-generator pcre2el pip-requirements
+                          pipenv pippel poetry popwin pos-tip prettier-js pug-mode
+                          py-isort pydoc pyenv-mode pylookup pytest pythonic
+                          pyvenv quickrun racket-mode rainbow-delimiters
+                          rainbow-identifiers rainbow-mode request restart-emacs
+                          sass-mode scss-mode seq simple-httpd skewer-mode
+                          slim-mode smeargle space-doc spaceline
+                          spacemacs-purpose-popwin spacemacs-whitespace-cleanup
+                          sphinx-doc stickyfunc-enhance string-edit-at-point
+                          string-inflection swiper symbol-overlay symon tagedit
+                          term-cursor tern toc-org transient treemacs-evil
+                          treemacs-icons-dired treemacs-magit treemacs-persp
+                          treemacs-projectile treepy undo-tree use-package uuidgen
+                          valign vi-tilde-fringe vim-powerline vmd-mode
+                          volatile-highlights web-beautify web-completion-data
+                          web-mode which-key winum with-editor writeroom-mode
+                          ws-butler xcscope yaml yapfify zenburn-theme)))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(rainbow-delimiters-depth-1-face ((t (:foreground "#fff670"))))
+   '(rainbow-delimiters-depth-2-face ((t (:foreground "#c792ea"))))
+   '(rainbow-delimiters-depth-3-face ((t (:foreground "#87ffaf"))))
+   '(rainbow-delimiters-depth-4-face ((t (:foreground "#00c0ff")))))
+  )
