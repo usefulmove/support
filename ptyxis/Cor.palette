@@ -1,0 +1,24 @@
+[Palette]
+Name=Cor
+Background=#20242D
+Foreground=#C7C8FF
+Cursor=#C7C8FF
+Color0=#20242D
+Color1=#F15F49
+Color2=#87FFAF
+Color3=#FFF670
+Color4=#69B4F9
+Color5=#DD92F6
+Color6=#8CE8FF
+Color7=#C9CCCD
+Color8=#2C303A
+Color9=#FF8E8E
+Color10=#87FFAF
+Color11=#FCAD3F
+Color12=#69B4F9
+Color13=#DD92F6
+Color14=#8CE8FF
+Color15=#C9CCCD
+
+# originally generated from https://github.com/Gogh-Co/Gogh/tree/master/themes/Neon Night.yml
+# installation directory:  ~/.local/share/org.gnome.Ptyxis/palettes/
