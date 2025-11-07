@@ -14,8 +14,9 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.scrolloff = 6
@@ -36,7 +37,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins
 require("lazy").setup({
-  -- Kanagawa theme
+  -- kanagawa theme
   {
     "rebelot/kanagawa.nvim",
     name = "kanagawa",
