@@ -29,40 +29,15 @@ vim.opt.lazyredraw = true               -- optional: speed up renders on some te
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git", "clone", "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim", lazypath
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- plugins
-require("lazy").setup({
-  -- kanagawa theme
-  {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
-    priority = 1000,
-    opts = {
-      compile = false,
-      dimInactive = true,
-      background = { dark = "dragon", light = "lotus" }, -- defaults
-      overrides = function(colors)
-        -- tweaks (optional)
-        local theme = colors.theme
-        return {
-          LineNr = { fg = theme.ui.nontext },
-          CursorLineNr = { fg = theme.ui.special, bold = true },
-          Visual = { bg = theme.ui.bg_p1 },
-        }
-      end,
-    },
-    config = function(_, opts)
-      require("kanagawa").setup(opts)
-      -- default flavor:
-      -- "kanagawa-wave", "kanagawa-dragon", or "kanagawa-lotus"
-      vim.cmd.colorscheme("kanagawa-wave")
-    end,
-  },
-}, {
-  ui = { border = "rounded" },
-})
+-- configure lazy.nvim to load plugins from lua/plugins
+require("lazy").setup("plugins")
