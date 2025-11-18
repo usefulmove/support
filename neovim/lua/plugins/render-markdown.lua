@@ -25,7 +25,7 @@ return {
       hyperlink = '', -- remove hyperlink icon
     },
     checkbox = {
-      unchecked = { icon = '_' },
+      unchecked = { icon = ' ' },
       checked = { icon = 'x' },
     },
   },

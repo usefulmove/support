@@ -4,7 +4,7 @@
 vim.g.mapleader = " "                   -- space as leader
 vim.opt.termguicolors = true
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.updatetime = 200
