@@ -2,6 +2,8 @@
 
 -- basic options (safe defaults)
 vim.g.mapleader = " "                   -- space as leader
+vim.g.loaded_perl_provider = 0          -- disable
+vim.g.loaded_ruby_provider = 0          -- disable
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -40,4 +42,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- configure lazy.nvim to load plugins from lua/plugins
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+    rocks = {
+        enabled = false,
+        hererocks = false,
+    },
+})

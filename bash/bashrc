@@ -90,9 +90,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lh'
+alias lla='ls -lah'
+alias la='ls -a'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -126,15 +126,20 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 # custom (dedmonds)
 set -o vi
 
+alias lc="wc -l"
 alias scm="racket -e"
 alias gimp3="flatpak run org.gimp.GIMP"
 alias comp="~/repos/comp/target/release/comp"
 alias agora="gemini"
 alias agorap="gemini -p"
 alias note="~/repos/note/.venv/bin/note"
+alias eph="~/repos/note/.venv/bin/note"
+alias e="~/repos/note/.venv/bin/note"
 alias roman="figlet -t -f roman"
 alias ff="fdfind"
 alias bat="batcat"
+alias trash="gio trash"
+alias enso="~/repos/socrates/support/enso/enso"
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"

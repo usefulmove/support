@@ -266,8 +266,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 14.0
+   dotspacemacs-default-font '("MonoLisa"
+                               :size 15.0
                                :weight normal
                                :width normal)
 
@@ -434,7 +434,10 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers '(:relative t
+                                         :visual nil
+                                         :disabled-for-modes dired-mode doc-view-mode pdf-view-mode
+                                         :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -564,7 +567,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (setq catppuccin-flavor 'macchiato))
+  (setq catppuccin-flavor 'mocha))
 
 
 (defun dotspacemacs/user-load ()
@@ -629,8 +632,8 @@ before packages are loaded."
   (spacemacs/set-leader-keys "o l D" 'gum-backward-delete-sexp)
 
   ;; default font temporary workaround. dotspacemacs-default-font not working.
-  (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :family "MonoLisa")
+  (set-face-attribute 'default nil :height 150)
 
   ;; eshell aliases
   (defun eshell/ff (&rest args)

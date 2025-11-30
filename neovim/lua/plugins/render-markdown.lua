@@ -2,31 +2,15 @@ return {
   'MeanderingProgrammer/render-markdown.nvim',
   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },
   opts = {
-    window = {
-      conceal = {
-        spell = true,
-      },
-    },
-    headings = {
-      level = { 1, 2, 3, 4, 5, 6 },
-      border = false,
-      icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' }, -- keep icons, or set to {} to disable
-    },
-    code = {
-      fence = true,
-    },
-    links = {
-      inline = true,
-    },
-    block_quote = {
-      enabled = true,
-    },
+    -- Links: keep behavior but remove the hyperlink icon
     link = {
-      hyperlink = '', -- remove hyperlink icon
+      hyperlink = '',  -- no icon before links
     },
+
+    -- Checkboxes: keep your plain icons
     checkbox = {
       unchecked = { icon = ' ' },
-      checked = { icon = 'x' },
+      checked   = { icon = 'x' },
     },
   },
 }
