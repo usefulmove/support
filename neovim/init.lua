@@ -27,6 +27,11 @@ vim.opt.laststatus = 3                  -- global statusline (no plugin needed)
 vim.opt.undofile = true                 -- persistent undo
 vim.opt.lazyredraw = true               -- optional: speed up renders on some terminals
 
+vim.keymap.set('n', '<Leader>ff', ':FzfLua files<CR>')
+vim.keymap.set('n', '<Leader>fb', ':FzfLua buffers<CR>')
+vim.keymap.set('n', '<Leader>fr', ':FzfLua oldfiles<CR>')
+vim.keymap.set('n', '<Leader>fg', ':FzfLua live_grep<CR>')
+
 -- bootstrap lazy.nvim (one-time)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
