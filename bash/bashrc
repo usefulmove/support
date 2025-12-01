@@ -126,6 +126,7 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 # custom (dedmonds)
 set -o vi
 
+alias cls="clear"
 alias lc="wc -l"
 alias scm="racket -e"
 alias gimp3="flatpak run org.gimp.GIMP"
@@ -134,6 +135,7 @@ alias agora="gemini"
 alias agorap="gemini -p"
 alias note="~/repos/note/.venv/bin/note"
 alias eph="~/repos/note/.venv/bin/note"
+alias cmp="~/repos/note/.venv/bin/note"
 alias e="~/repos/note/.venv/bin/note"
 alias roman="figlet -t -f roman"
 alias ff="fdfind"
