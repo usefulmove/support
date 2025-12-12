@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "rosepine",
+  "model": "anthropic/claude-3-5-sonnet-latest",
+  "tools": {
+    "bash": true,
+    "read": true,
+    "write": true,
+    "glob": true,
+    "grep": true,
+    "webfetch": true
+  },
+  "permission": {
+    "bash": "ask",
+    "webfetch": "allow"
+  },
+  "mcp": {
+    "mgrep": {
+      "type": "local",
+      "command": [
+        "mgrep",
+        "mcp"
+      ],
+      "enabled": true
+    }
+  }
+}
