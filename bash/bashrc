@@ -126,12 +126,15 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 # custom (dedmonds)
 set -o vi
 
+alias ..="cd .."
 alias cls="clear -x"
 alias lc="wc -l"
 alias scm="racket -e"
 alias gimp3="flatpak run org.gimp.GIMP"
 alias comp="~/repos/comp/target/release/comp"
 alias agora="gemini"
+alias son="~/repos/sonia/main/.venv/bin/sonia"
+alias sonc="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
 alias sonia="~/repos/sonia/main/.venv/bin/sonia"
 alias soniac="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
 alias roman="figlet -t -f roman"
@@ -139,6 +142,9 @@ alias ff="fdfind"
 alias bat="batcat"
 alias trash="gio trash"
 alias enso="~/repos/socrates/support/enso/enso"
+alias sposa="~/repos/sposa/.venv/bin/sposa"
+alias focus="/home/dedmonds/repos/foc/.venv/bin/python /home/dedmonds/repos/foc/main.py"
+alias esposa="nvim ~/base/sonia_database"
 
 # Dell XPS 13 webcam manual toggle
 alias webcam_on="sudo systemctl start ipu6-stream"
