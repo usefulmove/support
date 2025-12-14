@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "rosepine",
-  "model": "anthropic/claude-3-5-sonnet-latest",
+  "theme": "catppuccin",
   "tools": {
     "bash": true,
     "read": true,
@@ -23,5 +22,38 @@
       ],
       "enabled": true
     }
-  }
+  },
+  "command": {
+    "planning": {
+      "description": "Load Solum planning context - Strategic planning and problem framing",
+      "template": "!cat ~/.config/opencode/contexts/.processed/planning.md"
+    },
+    "coding": {
+      "description": "Load Solum coding context - Implementation and development",
+      "template": "!cat ~/.config/opencode/contexts/.processed/coding.md"
+    },
+    "designing": {
+      "description": "Load Solum designing context - Creative design and user experience",
+      "template": "!cat ~/.config/opencode/contexts/.processed/designing.md"
+    },
+    "brainstorming": {
+      "description": "Load Solum brainstorming context - Idea generation and creative exploration",
+      "template": "!cat ~/.config/opencode/contexts/.processed/brainstorming.md"
+    },
+    "architecting": {
+      "description": "Load Solum architecting context - System architecture and technical design",
+      "template": "!cat ~/.config/opencode/contexts/.processed/architecting.md"
+    },
+    "solum-refresh": {
+      "description": "Refresh all Solum context templates with current environment",
+      "template": "Run this command to update all context templates:\n\n!cd ~/.config/opencode/contexts && ./process-templates.sh"
+    }
+  },
+  "instructions": [
+    "Support Solum-based collaboration methodology for meaningful human-AI partnership",
+    "Available effort types via slash commands: /planning, /coding, /designing, /brainstorming, /architecting",
+    "Each context follows a four-phase growth cycle: planting, growing, harvesting, preparing",
+    "Preserve session state and context richness across transitions",
+    "Enable bidirectional flow where both human expertise and AI capabilities contribute fully"
+  ]
 }
