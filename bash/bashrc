@@ -126,13 +126,14 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 # custom (dedmonds)
 set -o vi
 
+alias e="exit"
 alias ..="cd .."
 alias cls="clear -x"
 alias lc="wc -l"
 alias scm="racket -e"
 alias gimp3="flatpak run org.gimp.GIMP"
 alias comp="~/repos/comp/target/release/comp"
-alias agora="gemini"
+alias agora="gemini -i ~/repos/socrates/agora/core/GEMINI.md"
 alias son="~/repos/sonia/main/.venv/bin/sonia"
 alias sonc="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
 alias sonia="~/repos/sonia/main/.venv/bin/sonia"
