@@ -134,10 +134,6 @@ alias scm="racket -e"
 alias gimp3="flatpak run org.gimp.GIMP"
 alias comp="~/repos/comp/target/release/comp"
 alias agora="gemini -i ~/repos/socrates/agora/core/GEMINI.md"
-alias son="~/repos/sonia/main/.venv/bin/sonia"
-alias sonc="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
-alias sonia="~/repos/sonia/main/.venv/bin/sonia"
-alias soniac="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
 alias roman="figlet -t -f roman"
 alias ff="fdfind"
 alias bat="batcat"
@@ -150,6 +146,13 @@ alias esposa="nvim ~/base/sonia_database"
 # Dell XPS 13 webcam manual toggle
 alias webcam_on="sudo systemctl start ipu6-stream"
 alias webcam_off="sudo systemctl stop ipu6-stream"
+
+## sonia app
+alias son="~/repos/sonia/main/.venv/bin/sonia"
+alias sonc="clear -x; ~/repos/sonia/main/.venv/bin/sonia"
+alias sonia="~/repos/sonia/main/.venv/bin/sonia"
+# set up shell completions - register completion script
+complete -C "~/repos/sonia/main/tools/completions.py" "sonia"
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
