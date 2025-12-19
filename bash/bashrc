@@ -90,6 +90,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias ls='exa'
 alias ll='ls -lh'
 alias lla='ls -lah'
 alias la='ls -a'
@@ -126,8 +127,10 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 # custom (dedmonds)
 set -o vi
 
-alias e="exit"
 alias ..="cd .."
+alias e="exit"
+alias t="tmux"
+alias c="clear -x"
 alias cls="clear -x"
 alias lc="wc -l"
 alias scm="racket -e"
