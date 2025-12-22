@@ -23,6 +23,16 @@
       "enabled": true
     }
   },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-f40c5d03-49d1-428f-bdb4-d2f8d9c4ad3d"
+      },
+      "enabled": true
+    }
+  },
   "command": {
     "planning": {
       "description": "Load Solum planning context - Strategic planning and problem framing",
@@ -55,5 +65,8 @@
     "Each context follows a four-phase growth cycle: planting, growing, harvesting, preparing",
     "Preserve session state and context richness across transitions",
     "Enable bidirectional flow where both human expertise and AI capabilities contribute fully"
+  ],
+  "plugin": [
+    "./plugin/idle-notify.ts"
   ]
 }
