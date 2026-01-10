@@ -1,152 +1,171 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ~/.zshrc: executed by zsh(1) for non-login shells.
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+HISTFILE=~/.zsh_history
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# don't put duplicate lines or lines starting with space in the history.
+# See zshoptions(1) for more options
+setopt HIST_IGNORE_SPACE HIST_IGNORE_DUPS
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# append to the history file, don't overwrite it
+setopt INC_APPEND_HISTORY SHARE_HISTORY
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# for setting history length see HISTSIZE and SAVEHIST in zshoptions(1)
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+# (zsh does this automatically)
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+setopt EXTENDED_GLOB
+setopt DOT_GLOB # include dotfiles
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+if [ "$color_prompt" = yes ]; then
+    PS1='%F{blue}%~%f ❭ '
+else
+    PS1='%~%f ❭ '
+fi
+unset color_prompt force_color_prompt
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    ;;
+*)
+    ;;
+esac
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -- -z)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-source $ZSH/oh-my-zsh.sh
+# some more ls aliases
+alias ls='exa'
+alias ll='ls -lh'
+alias lla='ls -lah'
+alias la='ls -a'
 
-# User configuration
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.aliases, instead of adding them here directly.
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/zsh.zshrc and /etc/profile
+# sources /etc/zsh.zshrc).
+autoload -U compinit && compinit
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# elixir
+installs_dir=$HOME/.elixir-install/installs
+export PATH=$installs_dir/otp/28.1/bin:$PATH
+export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-export EDITOR=vi
-
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-
+# custom (dedmonds)
 set -o vi
-alias grep="grep --color"
-alias lah="ls -lah"
+export EDITOR=vim
+
+alias ..="cd .."
 alias e="exit"
-alias tm="tmux"
-alias gvim="/Applications/Neovide.app/Contents/MacOS/neovide"
-alias rstudio="/Applications/RStudio.app/Contents/MacOS/RStudio"
+alias t="tmux"
+alias c="clear -x"
+alias cls="clear -x"
+alias lc="wc -l"
+alias scm="racket -e"
+alias gimp3="flatpak run org.gimp.GIMP"
+alias comp="~/repos/comp/target/release/comp"
+alias agora="gemini -i ~/repos/socrates/agora/core/GEMINI.md"
+alias roman="figlet -t -f roman"
+alias ff="fdfind"
+alias bat="batcat"
+alias trash="gio trash"
+alias enso="~/repos/socrates/support/enso/enso"
+alias sposa="~/repos/sposa/.venv/bin/sposa"
+alias focus="/home/dedmonds/repos/foc/.venv/bin/python /home/dedmonds/repos/focus/main.py"
+alias esposa="nvim ~/base/sonia_database"
+alias define="~/repos/code/define/.venv/bin/python ~/repos/code/define/main.py"
+alias oc="opencode"
+alias ocode="opencode"
 
-# git interface (gcp)
-alias g="git"
-alias go="git remote show origin"
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gca="git commit -am"
-alias gcp="git commit -m '(automated gcp push)' && git push && git status"
-alias gcap="git commit -am '(automated gcp push)' && git push && git status"
-alias gpull="git pull && git status"
-alias gpush="git push && git status"
-alias gd="git diff"
-alias gds="git diff --staged"
+# dell xps 13 webcam manual toggle
+alias webcam_on="sudo systemctl start ipu6-stream"
+alias webcam_off="sudo systemctl stop ipu6-stream"
 
-# repository base
-REPO="$HOME/repos"
-alias repo="cd $REPO && ls"
+## sonia app
+alias sonia="~/repos/sonia/main/.venv/bin/sonia"
+# set up shell completions - register completion script
+_sonia_completion() {
+    local completions
+    completions=$(~/repos/sonia/main/tools/completions.py sonia "$words[CURRENT]")
+    compadd -- ${(f)completions}
+}
+compdef _sonia_completion sonia
 
-# snowflake db command line interface
-alias snow="Rscript $REPO/code/snowflake/snowflake.R"
-alias snowSQL="Rscript $REPO/code/snowflake/snowSQL.R"
 
-# dictionary lookup
-alias define="$REPO/code/dict/dict.sh"
 
-# todoist rest api
-alias todo="$REPO/code/todoist/todo.sh"
+# set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
+eval "$(zoxide init zsh)"
+
+. "$HOME/.local/bin/env"
 . "$HOME/.cargo/env"
 
-# exp
-alias exp="scala -cp $REPO/expressions/ exp"
-
-# doing todos
-alias doing="nvim $REPO/doing/doing.md"
-
-# explain (OpenAI)
-alias explain="/home/dedmonds/repos/code/openai/explain.py"
-
-[ -f "/home/dedmonds/.ghcup/env" ] && source "/home/dedmonds/.ghcup/env" # ghcup-env
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
