@@ -53,9 +53,9 @@ theme = Catppuccin Mocha
 
 # fonts
 font-size = 13.5
-font-family = JetBrains Mono
+#font-family = JetBrains Mono
 #font-family = LigaComicMono
-#font-family = Source Code Pro
+font-family = Source Code Pro
 #font-family = Space Mono
 #font-family = MonoLisa
 
@@ -65,21 +65,20 @@ cursor-style = underline
 adjust-cursor-thickness = 1
 
 # window
-maximize = true
+#maximize = true
 #fullscreen = true
-#window-height = 38
-#window-width = 118
-title = [enso]
+window-height = 33
+window-width = 108
+title = enso
 window-title-font-family = LigaComicMono
 window-colorspace = display-p3
-background-opacity = 1.0
 mouse-hide-while-typing = true
 window-save-state = always
 
-# shaders
-custom-shader = shaders/bloom.glsl
-#custom-shader = shaders/retro-terminal.glsl
-#custom-shader = shaders/in-game-crt.glsl
-
 # keybindings
 keybind = f11=toggle_fullscreen
+
+# shaders
+#custom-shader = shaders/bloom.glsl
+#custom-shader = shaders/retro-terminal.glsl
+#custom-shader = shaders/in-game-crt.glsl
