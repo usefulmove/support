@@ -50,7 +50,6 @@
 
 # theme
 theme = Catppuccin Mocha
-foreground = faf6e4
 
 # fonts
 font-size = 13.5
