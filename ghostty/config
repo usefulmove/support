@@ -50,12 +50,14 @@
 
 # theme
 theme = Catppuccin Mocha
+foreground = faf6e4
 
 # fonts
 font-size = 13.5
 #font-family = JetBrains Mono
-#font-family = LigaComicMono
-font-family = Source Code Pro
+font-family = LigaComicMono
+#font-family = Source Code Pro
+#font-family = SauceCodePro
 #font-family = Space Mono
 #font-family = MonoLisa
 
