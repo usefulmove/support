@@ -1,39 +1,63 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "catppuccin",
-  "tools": {
-    "bash": true,
-    "read": true,
-    "write": true,
-    "glob": true,
-    "grep": true,
-    "webfetch": true
-  },
-  "permission": {
-    "bash": "ask",
-    "webfetch": "allow"
-  },
-  "mcp": {
-    "mgrep": {
-      "type": "local",
-      "command": [
-        "mgrep",
-        "mcp"
-      ],
-      "enabled": true
-    }
-  },
+  "model": "anthropic/claude-sonnet-4-6",
+  "small_model": "anthropic/claude-haiku-4-5",
   "mcp": {
     "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
       "headers": {
-        "CONTEXT7_API_KEY": "ctx7sk-f40c5d03-49d1-428f-bdb4-d2f8d9c4ad3d"
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
-      "enabled": true
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
     }
+  },
+  "permission": {
+    "read": "allow",
+    "find": "allow",
+    "fd": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "rg": "allow",
+    "list": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "codesearch": "allow",
+    "lsp": "allow",
+    "skill": "allow",
+    "task": "allow",
+    "edit": "ask",
+    "bash": "ask"
   },
   "plugin": [
     "./plugin/idle-notify.ts"
-  ]
+  ],
+  "provider": {
+    "anthropic": {
+      "options": {
+        "setCacheKey": true
+      }
+    },
+    "ollama": {
+      "models": {
+        "glm-5:cloud": {
+          "name": "glm-5:cloud"
+        },
+        "kimi-k2.5:cloud": {
+          "name": "kimi-k2.5:cloud"
+        },
+        "qwen3-coder-next": {
+          "name": "qwen3-coder-next"
+        },
+        "qwen3-coder-next:cloud": {
+          "name": "qwen3-coder-next:cloud"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  }
 }
