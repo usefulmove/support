@@ -110,6 +110,155 @@
       }
     }
   },
+  "mode": {
+    "reasoner": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "temperature": 0.2,
+      "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true
+      }
+    },
+    "researcher": {
+      "model": "opencode/gemini-3.1-pro",
+      "temperature": 0.3,
+      "prompt": "{file:~/.config/opencode/prompts/researcher.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "webfetch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true
+      }
+    },
+    "QA": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "temperature": 0.1,
+      "prompt": "{file:~/.config/opencode/prompts/qa.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "bash": true,
+        "write": false,
+        "edit": false
+      }
+    },
+    "teacher": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "temperature": 0.3,
+      "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "webfetch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "narrator": {
+      "model": "opencode/kimi-k2.5",
+      "temperature": 0.4,
+      "prompt": "{file:~/.config/opencode/prompts/narrator.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "write": true,
+        "edit": true
+      }
+    },
+    "creator": {
+      "model": "anthropic/claude-opus-4-6",
+      "temperature": 0.7,
+      "prompt": "{file:~/.config/opencode/prompts/creator.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "write": true,
+        "edit": true
+      }
+    },
+    "coder": {
+      "model": "opencode/gpt-5.4",
+      "temperature": 0.1,
+      "prompt": "{file:~/.config/opencode/prompts/coder.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "webfetch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "multi-modal": {
+      "model": "opencode/gemini-3.1-pro",
+      "temperature": 0.3,
+      "prompt": "{file:~/.config/opencode/prompts/multi-modal.md}",
+      "tools": {
+        "read": true,
+        "glob": true,
+        "grep": true,
+        "lsp": true,
+        "websearch": true,
+        "webfetch": true,
+        "codesearch": true,
+        "task": true,
+        "skill": true,
+        "list": true,
+        "write": true,
+        "edit": true
+      }
+    }
+  },
   "plugin": [
     "./plugin/idle-notify.ts"
   ],
