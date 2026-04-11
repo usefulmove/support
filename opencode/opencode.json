@@ -115,6 +115,48 @@
       "model": "anthropic/claude-sonnet-4-6",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
+      "permission": {
+        "bash": {
+          "*": "ask",
+          "pwd": "allow",
+          "ls": "allow",
+          "ls *": "allow",
+          "cat": "allow",
+          "cat *": "allow",
+          "find": "allow",
+          "find *": "allow",
+          "fd": "allow",
+          "fd *": "allow",
+          "grep": "allow",
+          "grep *": "allow",
+          "rg": "allow",
+          "rg *": "allow",
+          "which": "allow",
+          "which *": "allow",
+          "wc": "allow",
+          "wc *": "allow",
+          "head": "allow",
+          "head *": "allow",
+          "tail": "allow",
+          "tail *": "allow",
+          "stat": "allow",
+          "stat *": "allow",
+          "tree": "allow",
+          "tree *": "allow",
+          "git status": "allow",
+          "git status *": "allow",
+          "git diff": "allow",
+          "git diff *": "allow",
+          "git log": "allow",
+          "git log *": "allow",
+          "git show": "allow",
+          "git show *": "allow",
+          "git ls-files": "allow",
+          "git ls-files *": "allow",
+          "git rev-parse": "allow",
+          "git rev-parse *": "allow"
+        }
+      },
       "tools": {
         "read": true,
         "glob": true,
@@ -124,7 +166,10 @@
         "codesearch": true,
         "task": true,
         "skill": true,
-        "list": true
+        "list": true,
+        "write": false,
+        "edit": false,
+        "bash": true
       }
     },
     "researcher": {
@@ -270,8 +315,8 @@
     },
     "ollama": {
       "models": {
-        "glm-5:cloud": {
-          "name": "glm-5:cloud"
+        "glm-5.1:cloud": {
+          "name": "glm-5.1:cloud"
         },
         "kimi-k2.5:cloud": {
           "name": "kimi-k2.5:cloud"
