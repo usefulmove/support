@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "reasoner",
-  "model": "ollama-cloud/minimax-m2.7",
+  "model": "ollama-cloud/kimi-k2.6:cloud",
   "mcp": {
     "context7": {
       "enabled": true,
@@ -173,7 +173,7 @@
       }
     },
     "quality": {
-      "model": "ollama-cloud/qwen3.5:397b",
+      "model": "opencode/gpt-5.4",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/qa.md}",
       "tools": {
@@ -193,7 +193,7 @@
       }
     },
     "reasoner": {
-      "model": "ollama-cloud/qwen3.5:397b",
+      "model": "ollama-cloud/kimi-k2.6:cloud",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
       "permission": {
@@ -273,7 +273,7 @@
       }
     },
     "teacher": {
-      "model": "ollama-cloud/minimax-m2.7",
+      "model": "ollama-cloud/kimi-k2.6:cloud",
       "temperature": 0.3,
       "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
       "tools": {
@@ -294,7 +294,7 @@
       }
     },
     "curator": {
-      "model": "ollama-cloud/qwen3.5:397b",
+      "model": "ollama-cloud/minimax-m2.7",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/curator.md}",
       "permission": {
@@ -370,17 +370,14 @@
         "glm-5.1:cloud": {
           "name": "glm-5.1:cloud"
         },
-        "kimi-k2.5:cloud": {
-          "name": "kimi-k2.5:cloud"
+        "kimi-k2.6:cloud": {
+          "name": "kimi-k2.6:cloud"
         },
         "minimax-m2.7:cloud": {
           "name": "minimax-m2.7:cloud"
         },
         "gemma4:31b-cloud": {
           "name": "gemma4:31b-cloud"
-        },
-        "qwen3-coder-next:cloud": {
-          "name": "qwen3-coder-next:cloud"
         }
       },
       "name": "Ollama (local)",
