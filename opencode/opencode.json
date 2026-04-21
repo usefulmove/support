@@ -114,7 +114,7 @@
   },
   "mode": {
     "coder": {
-      "model": "ollama-cloud/glm-5.1",
+      "model": "ollama-cloud/kimi-k2.6:cloud",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/coder.md}",
       "tools": {
