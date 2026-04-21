@@ -273,7 +273,7 @@
       }
     },
     "teacher": {
-      "model": "ollama-cloud/gemma4:31b",
+      "model": "ollama-cloud/minimax-m2.7",
       "temperature": 0.3,
       "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
       "tools": {
