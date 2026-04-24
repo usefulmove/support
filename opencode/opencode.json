@@ -114,7 +114,7 @@
   },
   "mode": {
     "coder": {
-      "model": "ollama-cloud/glm-5.1",
+      "model": "opencode/claude-opus-4-7",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/coder.md}",
       "tools": {
@@ -154,7 +154,7 @@
       }
     },
     "narrator": {
-      "model": "ollama-cloud/kimi-k2.5",
+      "model": "opencode/claude-sonnet-4-6",
       "temperature": 0.4,
       "prompt": "{file:~/.config/opencode/prompts/narrator.md}",
       "tools": {
@@ -193,7 +193,7 @@
       }
     },
     "reasoner": {
-      "model": "ollama-cloud/kimi-k2.6:cloud",
+      "model": "opencode/claude-sonnet-4-6",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
       "permission": {
@@ -273,7 +273,7 @@
       }
     },
     "teacher": {
-      "model": "ollama-cloud/minimax-m2.7",
+      "model": "opencode/claude-sonnet-4-6",
       "temperature": 0.3,
       "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
       "tools": {
@@ -363,30 +363,6 @@
     "anthropic": {
       "options": {
         "setCacheKey": true
-      }
-    },
-    "ollama": {
-      "models": {
-        "glm-5.1:cloud": {
-          "name": "glm-5.1:cloud"
-        },
-        "kimi-k2.5:cloud": {
-          "name": "kimi-k2.5:cloud"
-        },
-        "kimi-k2.6:cloud": {
-          "name": "kimi-k2.6:cloud"
-        },
-        "minimax-m2.7:cloud": {
-          "name": "minimax-m2.7:cloud"
-        },
-        "gemma4:31b-cloud": {
-          "name": "gemma4:31b-cloud"
-        }
-      },
-      "name": "Ollama (local)",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseURL": "http://127.0.0.1:11434/v1"
       }
     }
   }
