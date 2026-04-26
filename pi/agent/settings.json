@@ -1,0 +1,6 @@
+{
+  "defaultModel": "kimi-k2.6:cloud",
+  "defaultProvider": "ollama",
+  "hideThinkingBlock": false,
+  "lastChangelogVersion": "0.70.2"
+}

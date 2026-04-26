@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "reasoner",
+  "default_agent": "narrator",
   "model": "ollama-cloud/kimi-k2.6:cloud",
   "mcp": {
     "context7": {
@@ -114,7 +114,7 @@
   },
   "mode": {
     "coder": {
-      "model": "opencode/claude-opus-4-7",
+      "model": "opencode/claude-sonnet-4-6",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/coder.md}",
       "tools": {
@@ -135,7 +135,7 @@
       }
     },
     "creator": {
-      "model": "anthropic/claude-opus-4-7",
+      "model": "ollama-cloud/kimi-k2.6:cloud",
       "temperature": 0.7,
       "prompt": "{file:~/.config/opencode/prompts/creator.md}",
       "tools": {
@@ -154,7 +154,7 @@
       }
     },
     "narrator": {
-      "model": "opencode/claude-sonnet-4-6",
+      "model": "ollama-cloud/kimi-k2.6:cloud",
       "temperature": 0.4,
       "prompt": "{file:~/.config/opencode/prompts/narrator.md}",
       "tools": {
