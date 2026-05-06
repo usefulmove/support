@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "narrator",
+  "default_agent": "reasoner",
   "model": "ollama-cloud/deepseek-v4-flash",
   "mcp": {
     "context7": {
@@ -114,7 +114,7 @@
   },
   "mode": {
     "coder": {
-      "model": "opencode/claude-sonnet-4-6",
+      "model": "anthropic/claude-sonnet-4-6",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/coder.md}",
       "tools": {
@@ -193,7 +193,7 @@
       }
     },
     "reasoner": {
-      "model": "opencode/claude-sonnet-4-6",
+      "model": "anthropic/claude-sonnet-4-6",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
       "permission": {
@@ -273,7 +273,7 @@
       }
     },
     "teacher": {
-      "model": "opencode/claude-sonnet-4-6",
+      "model": "anthropic/claude-sonnet-4-6",
       "temperature": 0.3,
       "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
       "tools": {
@@ -294,7 +294,7 @@
       }
     },
     "curator": {
-      "model": "ollama-cloud/deepseek-v4-flash",
+      "model": "anthropic/claude-sonnet-4-6",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/curator.md}",
       "permission": {
@@ -351,7 +351,7 @@
         "list": true,
         "question": true,
         "write": false,
-        "edit": false,
+        "edit": true,
         "bash": true
       }
     }
