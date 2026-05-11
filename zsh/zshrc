@@ -114,9 +114,10 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 
 # custom (dedmonds)
 set -o vi
-export EDITOR=vim
+export EDITOR=nvim
 
 alias ..="cd .."
+alias ....="cd ../.."
 alias e="exit"
 alias t="tmux"
 alias c="clear -x"
@@ -127,23 +128,38 @@ alias gimp3="flatpak run org.gimp.GIMP"
 alias comp="~/repos/comp/target/release/comp"
 alias agora="gemini -i ~/repos/socrates/agora/core/GEMINI.md"
 alias roman="figlet -t -f roman"
+alias fd="fdfind"
 alias ff="fdfind"
 alias bat="batcat"
 alias trash="gio trash"
 alias enso="~/repos/socrates/support/enso/enso"
 alias sposa="~/repos/sposa/.venv/bin/sposa"
 alias focus="/home/dedmonds/repos/foc/.venv/bin/python /home/dedmonds/repos/focus/main.py"
-alias esposa="nvim ~/base/sonia_database"
 alias define="~/repos/code/define/.venv/bin/python ~/repos/code/define/main.py"
-alias oc="opencode"
-alias ocode="opencode"
+
+# codeassist
+alias codeassist="uv run codeassist query"
 
 # dell xps 13 webcam manual toggle
 alias webcam_on="sudo systemctl start ipu6-stream"
 alias webcam_off="sudo systemctl stop ipu6-stream"
 
+# opencode
+alias oc="opencode"
+alias occ="opencode ~/base/cora/"
+alias ocode="opencode"
+alias cora_h="opencode ~/base/cora/"
+alias luum_h="opencode ~/base/luum/"
+alias ea_h="opencode ~/base/luum-ea/"
+
+# pi
+alias toni="cd ~/base/toni/ && pi"
+
 ## sonia app
 alias sonia="~/repos/sonia/main/.venv/bin/sonia"
+alias s="~/repos/sonia/main/.venv/bin/sonia"
+alias ss="~/repos/sonia/main/.venv/bin/sonia short"
+alias luum="~/repos/sonia/main/.venv/bin/sonia tag luum"
 # set up shell completions - register completion script
 _sonia_completion() {
     local completions
@@ -152,10 +168,18 @@ _sonia_completion() {
 }
 compdef _sonia_completion sonia
 
+# source zshrc.local
+[[ ! -r '/home/dedmonds/.zshrc.local' ]] || source '/home/dedmonds/.zshrc.local' > /dev/null 2> /dev/null
 
+# odin
+export PATH="$HOME/odin:$PATH"
+export ODIN_ROOT="$HOME/odin"
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
+
+# Go toolchain
+export PATH="$HOME/.local/go/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 
@@ -169,3 +193,15 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/dedmonds/.opam/opam-init/init.zsh' ]] || source '/home/dedmonds/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
+# npm user-local global bin
+export PATH="$HOME/.npm-global/bin:$PATH"
