@@ -114,7 +114,7 @@
   },
   "mode": {
     "coder": {
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "openai/gpt-5.5",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/coder.md}",
       "tools": {
@@ -135,7 +135,7 @@
       }
     },
     "creator": {
-      "model": "ollama-cloud/kimi-k2.6:cloud",
+      "model": "ollama-cloud/kimi-k2.6",
       "temperature": 0.7,
       "prompt": "{file:~/.config/opencode/prompts/creator.md}",
       "tools": {
@@ -173,7 +173,7 @@
       }
     },
     "quality": {
-      "model": "opencode/claude-opus-4-7",
+      "model": "openai/gpt-5.5",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/qa.md}",
       "tools": {
@@ -193,7 +193,7 @@
       }
     },
     "reasoner": {
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "openai/gpt-5.4",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
       "permission": {
@@ -294,7 +294,7 @@
       }
     },
     "curator": {
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "openai/gpt-5.4-mini",
       "temperature": 0.1,
       "prompt": "{file:~/.config/opencode/prompts/curator.md}",
       "permission": {
@@ -409,6 +409,11 @@
         "gpt-5.3-codex",
         "gpt-5.3-codex-spark",
         "hy3-preview-free"
+      ]
+    },
+    "openai": {
+      "blacklist": [
+        "gpt-5.2"
       ]
     },
     "ollama-cloud": {
