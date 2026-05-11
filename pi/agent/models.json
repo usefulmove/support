@@ -39,6 +39,47 @@
             "text"
           ],
           "reasoning": true
+        },
+        {
+          "contextWindow": 128000,
+          "id": "deepseek-v4-pro:cloud",
+          "input": [
+            "text"
+          ],
+          "reasoning": true
+        },
+        {
+          "contextWindow": 128000,
+          "id": "deepseek-v4-flash:cloud",
+          "input": [
+            "text"
+          ],
+          "reasoning": false
+        }
+      ]
+    },
+    "deepseek": {
+      "api": "openai-completions",
+      "apiKey": "DEEPSEEK_API_KEY",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash",
+          "input": ["text"],
+          "reasoning": false,
+          "contextWindow": 128000
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "input": ["text"],
+          "reasoning": true,
+          "contextWindow": 128000
         }
       ]
     }
