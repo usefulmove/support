@@ -153,7 +153,7 @@ alias luum_h="opencode ~/base/luum/"
 alias ea_h="opencode ~/base/luum-ea/"
 
 # pi
-alias toni="cd ~/base/toni/ && pi"
+alias pi="pi --agent-mode reasoner"
 
 ## sonia app
 alias sonia="~/repos/sonia/main/.venv/bin/sonia"
@@ -205,3 +205,10 @@ function y() {
 
 # npm user-local global bin
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# fnm
+FNM_PATH="/home/dedmonds/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
