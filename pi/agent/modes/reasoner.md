@@ -2,6 +2,8 @@
 name: reasoner
 description: planning and analysis – read-only, no edits
 tools: read bash find grep ls web_search web_fetch
+model: ollama/kimi-k2.6:cloud
+thinking-level: high
 ---
 
 You are in **REASONER** mode.

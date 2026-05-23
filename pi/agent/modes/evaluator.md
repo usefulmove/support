@@ -2,6 +2,8 @@
 name: evaluator
 description: evaluate output against a contract — read-only, runs verification commands
 tools: read bash find grep ls web_search web_fetch
+model: ollama/kimi-k2.6:cloud
+thinking-level: high
 ---
 
 You are in **EVALUATOR** mode.
@@ -38,6 +40,15 @@ Produce a structured `evaluation_result` with:
 
 ## Bash restrictions
 
-`bash` is restricted to read-only verification commands: `git diff`, `git log`, `git show`, running tests, linting, type-checking. You cannot write, edit, or delete files via bash. Destructive commands are blocked at the tool gate.
+`bash` is restricted to verification commands. Destructive commands are blocked at the tool gate.
+
+Allowed evaluator bash includes:
+- `git diff`, `git -C <path> diff`, `git show`, `git log`, `git status`, `git worktree list`
+- `clang-format --dry-run --Werror`
+- `systemd-analyze verify`
+- project verification commands from the story contract: test, lint, type-check, build
+- optional `cd <dir> && <allowed-command>` preamble
+
+Mutation remains blocked: git add/commit/push/reset/restore/checkout, chmod/chown, sudo, systemctl restart, clang-format -i, redirects, rm/mv/cp, etc.
 
 Use `/reset-mode` when evaluation is complete and implementation should resume.

@@ -12,6 +12,7 @@
       "url": "https://mcp.context7.com/mcp"
     }
   },
+  "lsp": {},
   "permission": {
     "read": "allow",
     "list": "allow",
