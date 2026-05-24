@@ -135,11 +135,6 @@ alias trash="gio trash"
 alias sposa="~/repos/sposa/.venv/bin/sposa"
 alias define="~/repos/code/define/.venv/bin/python ~/repos/code/define/main.py"
 
-# aos :: agent orchestration surface
-alias toni="cd ~/base/toni/ && pi --tools bash"
-alias danielle="toni"
-alias memento="toni"
-
 # codeassist
 alias codeassist="uv run codeassist query"
 
@@ -157,6 +152,11 @@ alias ea_h="opencode ~/base/luum-ea/"
 
 # pi
 alias pi="pi --agent-mode reasoner"
+
+# aos :: agent orchestration surface
+alias toni="cd ~/base/toni/ && pi --tools bash"
+alias danielle="toni"
+alias memento="toni"
 
 ## sonia app
 alias sonia="~/repos/sonia/main/.venv/bin/sonia"
