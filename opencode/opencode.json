@@ -69,6 +69,7 @@
   },
   "agent": {
     "plan": {
+      "disable": true,
       "permission": {
         "bash": {
           "*": "ask",
@@ -111,111 +112,10 @@
           "git rev-parse *": "allow"
         }
       }
-    }
+    },
+    "build": { "disable": true }
   },
   "mode": {
-    "coder": {
-      "model": "openai/gpt-5.5",
-      "temperature": 0.1,
-      "prompt": "{file:~/.config/opencode/prompts/coder.md}",
-      "tools": {
-        "read": true,
-        "glob": true,
-        "grep": true,
-        "lsp": true,
-        "websearch": true,
-        "webfetch": true,
-        "codesearch": true,
-        "task": true,
-        "skill": true,
-        "list": true,
-        "question": true,
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    },
-    "creator": {
-      "model": "ollama-cloud/kimi-k2.6",
-      "temperature": 0.7,
-      "prompt": "{file:~/.config/opencode/prompts/creator.md}",
-      "tools": {
-        "read": true,
-        "glob": true,
-        "grep": true,
-        "lsp": true,
-        "websearch": true,
-        "codesearch": true,
-        "task": true,
-        "skill": true,
-        "list": true,
-        "question": true,
-        "write": true,
-        "edit": true
-      }
-    },
-    "curator": {
-      "model": "openai/gpt-5.4-mini",
-      "temperature": 0.1,
-      "prompt": "{file:~/.config/opencode/prompts/curator.md}",
-      "permission": {
-        "bash": {
-          "*": "ask",
-          "pwd": "allow",
-          "ls": "allow",
-          "ls *": "allow",
-          "cat": "allow",
-          "cat *": "allow",
-          "find": "allow",
-          "find *": "allow",
-          "fd": "allow",
-          "fd *": "allow",
-          "grep": "allow",
-          "grep *": "allow",
-          "rg": "allow",
-          "rg *": "allow",
-          "which": "allow",
-          "which *": "allow",
-          "wc": "allow",
-          "wc *": "allow",
-          "head": "allow",
-          "head *": "allow",
-          "tail": "allow",
-          "tail *": "allow",
-          "stat": "allow",
-          "stat *": "allow",
-          "tree": "allow",
-          "tree *": "allow",
-          "git status": "allow",
-          "git status *": "allow",
-          "git diff": "allow",
-          "git diff *": "allow",
-          "git log": "allow",
-          "git log *": "allow",
-          "git show": "allow",
-          "git show *": "allow",
-          "git ls-files": "allow",
-          "git ls-files *": "allow",
-          "git rev-parse": "allow",
-          "git rev-parse *": "allow"
-        }
-      },
-      "tools": {
-        "read": true,
-        "glob": true,
-        "grep": true,
-        "lsp": true,
-        "websearch": true,
-        "codesearch": true,
-        "task": true,
-        "skill": true,
-        "list": true,
-        "question": true,
-        "write": false,
-        "edit": true,
-        "bash": true
-      }
-    },
     "evaluator": {
       "model": "openai/gpt-5.5",
       "temperature": 0.1,
@@ -236,27 +136,8 @@
         "edit": false
       }
     },
-    "narrator": {
-      "model": "ollama-cloud/deepseek-v4-flash",
-      "temperature": 0.4,
-      "prompt": "{file:~/.config/opencode/prompts/narrator.md}",
-      "tools": {
-        "read": true,
-        "glob": true,
-        "grep": true,
-        "lsp": true,
-        "websearch": true,
-        "codesearch": true,
-        "task": true,
-        "skill": true,
-        "list": true,
-        "question": true,
-        "write": true,
-        "edit": true
-      }
-    },
     "reasoner": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "temperature": 0.2,
       "prompt": "{file:~/.config/opencode/prompts/reasoner.md}",
       "permission": {
@@ -317,28 +198,10 @@
         "bash": true
       }
     },
-    "researcher": {
-      "model": "opencode/gemini-3.1-pro",
-      "temperature": 0.3,
-      "prompt": "{file:~/.config/opencode/prompts/researcher.md}",
-      "tools": {
-        "read": true,
-        "glob": true,
-        "grep": true,
-        "lsp": true,
-        "websearch": true,
-        "webfetch": true,
-        "codesearch": true,
-        "task": true,
-        "skill": true,
-        "list": true,
-        "question": true
-      }
-    },
-    "teacher": {
-      "model": "anthropic/claude-sonnet-4-6",
-      "temperature": 0.3,
-      "prompt": "{file:~/.config/opencode/prompts/teacher.md}",
+    "generator": {
+      "model": "openai/gpt-5.5",
+      "temperature": 0.2,
+      "prompt": "{file:~/.config/opencode/prompts/generator.md}",
       "tools": {
         "read": true,
         "glob": true,
@@ -351,9 +214,9 @@
         "skill": true,
         "list": true,
         "question": true,
-        "write": false,
-        "edit": false,
-        "bash": false
+        "write": true,
+        "edit": true,
+        "bash": true
       }
     }
   },
