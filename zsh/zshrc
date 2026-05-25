@@ -150,19 +150,21 @@ alias cora_h="opencode ~/base/cora/"
 alias luum_h="opencode ~/base/luum/"
 alias ea_h="opencode ~/base/luum-ea/"
 
-# pi
-alias pi="pi --agent-mode reasoner"
+# pi agent modes
+alias generator="pi"
+alias reasoner="pi --agent-mode reasoner"
+alias evaluator="pi --agent-mode evaluator"
 
-# aos :: agent orchestration surface
-alias toni="cd ~/base/toni/ && pi --tools bash"
-alias danielle="toni"
+# aos :: agent orchestration surfaces
+alias toni="cd ~/base/toni/ && pi"
 alias memento="toni"
+alias danielle="cd ~/base/luum-ea/ && pi"
+alias enso="cd ~/repos/enso/ && pi"
 
 ## sonia app
-alias sonia="~/repos/sonia/main/.venv/bin/sonia"
-alias s="~/repos/sonia/main/.venv/bin/sonia"
-alias ss="~/repos/sonia/main/.venv/bin/sonia short"
-alias luum="~/repos/sonia/main/.venv/bin/sonia tag luum"
+alias s="sonia"
+alias ss="sonia short"
+alias luum="sonia tag luum"
 # set up shell completions - register completion script
 _sonia_completion() {
     local completions
@@ -170,6 +172,10 @@ _sonia_completion() {
     compadd -- ${(f)completions}
 }
 compdef _sonia_completion sonia
+
+# asciinema terminal recording
+alias record-terminal="asciinema rec -i 2.5"
+alias cast-to-gif="agg --speed 3 --text-font-family="Space Mono" --font-size=32 --theme=kanagawa --no-loop"
 
 # source zshrc.local
 [[ ! -r '/home/dedmonds/.zshrc.local' ]] || source '/home/dedmonds/.zshrc.local' > /dev/null 2> /dev/null
