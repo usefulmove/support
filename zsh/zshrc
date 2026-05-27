@@ -136,6 +136,9 @@ alias trash="gio trash"
 alias sposa="~/repos/sposa/.venv/bin/sposa"
 alias define="~/repos/code/define/.venv/bin/python ~/repos/code/define/main.py"
 
+# git
+alias fast-forward="git merge-base --is-ancestor HEAD @{u} && echo 'fast-forward' || echo 'not fast-forward'"
+
 # codeassist
 alias codeassist="uv run codeassist query"
 
@@ -172,7 +175,7 @@ compdef _sonia_completion sonia
 
 # asciinema terminal recording
 alias record-terminal="asciinema rec -i 2.5"
-alias cast-to-gif="agg --speed 3 --text-font-family="Space Mono" --font-size=32 --theme=kanagawa --no-loop"
+alias cast-to-gif="agg --speed 3 --text-font-family='Space Mono' --font-size=32 --theme=kanagawa --no-loop"
 alias cast="asciinema play -s 3"
 
 # edit terminal input in default editor
