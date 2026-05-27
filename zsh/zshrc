@@ -114,6 +114,7 @@ export PATH=$installs_dir/elixir/1.19.2-otp-28/bin:$PATH
 
 # custom (dedmonds)
 set -o vi
+export VISUAL=nvim
 export EDITOR=nvim
 
 alias ..="cd .."
@@ -143,12 +144,7 @@ alias webcam_on="sudo systemctl start ipu6-stream"
 alias webcam_off="sudo systemctl stop ipu6-stream"
 
 # opencode
-alias oc="opencode"
-alias occ="opencode ~/base/cora/"
-alias ocode="opencode"
-alias cora_h="opencode ~/base/cora/"
-alias luum_h="opencode ~/base/luum/"
-alias ea_h="opencode ~/base/luum-ea/"
+alias oc="opencode --prompt"
 
 # pi agent modes
 alias generator="pi"
@@ -160,11 +156,12 @@ alias toni="cd ~/base/toni/ && pi"
 alias memento="toni"
 alias danielle="cd ~/base/luum-ea/ && pi"
 alias enso="cd ~/repos/enso/ && pi"
+alias luum="opencode ~/base/luum/ --prompt"
 
 ## sonia app
 alias s="sonia"
 alias ss="sonia short"
-alias luum="sonia tag luum"
+alias ssluum="sonia tag luum"
 # set up shell completions - register completion script
 _sonia_completion() {
     local completions
@@ -176,6 +173,12 @@ compdef _sonia_completion sonia
 # asciinema terminal recording
 alias record-terminal="asciinema rec -i 2.5"
 alias cast-to-gif="agg --speed 3 --text-font-family="Space Mono" --font-size=32 --theme=kanagawa --no-loop"
+alias cast="asciinema play -s 3"
+
+# edit terminal input in default editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 # source zshrc.local
 [[ ! -r '/home/dedmonds/.zshrc.local' ]] || source '/home/dedmonds/.zshrc.local' > /dev/null 2> /dev/null
