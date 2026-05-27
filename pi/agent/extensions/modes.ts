@@ -329,10 +329,8 @@ export default function (pi: ExtensionAPI) {
     // Update UI
     ctx.ui.setStatus("mode", name);
     ctx.ui.setWidget("mode", [
-      `Mode: ${name} — ${mode.description}`,
-      ...(mode.model ? [`Model: ${mode.model}`] : []),
-      ...(mode.thinkingLevel ? [`Thinking: ${mode.thinkingLevel}`] : []),
-      `Tools: ${mode.tools.includes("all") ? "all" : mode.tools.join(", ")}`,
+      `mode: ${name} — ${mode.description}`,
+      `tools: ${mode.tools.includes("all") ? "all" : mode.tools.join(", ")}`,
     ]);
     ctx.ui.notify(`Mode: ${name}${mode.model ? ` — ${mode.model}` : ""}${mode.thinkingLevel ? ` @ ${mode.thinkingLevel}` : ""}`, "info");
   }
