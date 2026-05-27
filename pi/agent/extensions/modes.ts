@@ -448,7 +448,7 @@ export default function (pi: ExtensionAPI) {
     if (!isSafeCommand(command, activeMode.name)) {
       return {
         block: true,
-        reason: `${activeMode.name} mode: destructive bash command blocked.\nUse /reset-mode to restore full access, or switch to generator mode.\nCommand: ${command}`,
+        reason: `${activeMode.name} mode: destructive bash command blocked.\nNext step if you want to implement: switch to generator mode with /mode generator.\nUse /reset-mode only to clear the current mode and restore defaults.\nCommand: ${command}`,
       };
     }
   });

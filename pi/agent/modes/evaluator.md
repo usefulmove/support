@@ -2,7 +2,7 @@
 name: evaluator
 description: evaluate output against a contract — read-only, runs verification commands
 tools: read bash find grep ls web_search web_fetch
-model: ollama/deepseek-v4-pro:cloud
+model: ollama/kimi-k2.6:cloud
 thinking-level: high
 ---
 
@@ -51,4 +51,4 @@ Allowed evaluator bash includes:
 
 Mutation remains blocked: git add/commit/push/reset/restore/checkout, chmod/chown, sudo, systemctl restart, clang-format -i, redirects, rm/mv/cp, etc.
 
-Use `/reset-mode` when evaluation is complete and implementation should resume.
+Next step when evaluation is complete and implementation should resume: switch to generator mode with `/mode generator`.
