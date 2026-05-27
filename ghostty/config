@@ -52,12 +52,12 @@
 theme = Catppuccin Mocha
 
 # fonts
-font-size = 13.5
+font-size = 11.5
+font-family = Space Mono
+#font-family = LigaComicMono
+#font-family = Hasklug Nerd Font Mono
 #font-family = JetBrains Mono
-font-family = LigaComicMono
 #font-family = Source Code Pro
-#font-family = SauceCodePro
-#font-family = Space Mono
 #font-family = MonoLisa
 
 # cursor
